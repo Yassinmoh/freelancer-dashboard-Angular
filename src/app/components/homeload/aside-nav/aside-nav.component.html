@@ -1,0 +1,83 @@
+<!-- <div class="container-fluid"> -->
+<div class="row">
+    <nav id="sidebarMenu" class="col-md-12 d-md-block bg-waring sidebar collapse">
+        <div class="col-md-12">
+            <img class="img-fluid" src="../../../assets/img/freelancer-logo.svg" alt="">
+        </div>
+        <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+                <li class="nav-item fs-5 mb-3">
+                    <a class="nav-link active" aria-current="page" routerLinkActive="heightlight"
+                        routerLink="Dashboard">
+                        <i class="fas fa-home"></i>
+                        <span class="px-2 font-open">Dashboard</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item fs-5 ms-1 ">
+                    <a class="nav-link" routerLinkActive="heightlight" routerLink="Profile">
+                        <i class="far fa-file text-danger"></i>
+                        <span class="px-2 font-open">Profile</span>
+                    </a>
+                </li> -->
+                 <!----------------------------------------------------start button collapse users------------------------------- -->
+                 <li class="accordion  border-0" id="accordionExample">
+                    <div class="accordion-item accordionStyle  border-0">
+                        <p class="accordion-button bk-tr fs-5 text-dark border-0" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-users text-warning"></i>
+                            <span class="px-2 font-open">users</span>
+                        </p>
+                        <div id="collapseOne" class="accordion-collapse collapse lasdiv" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <ul class="nav flex-column">
+                                <li class="nav-item border-0 fs-5  mb-3">
+                                    <a class="nav-link active" routerLink="users" routerLinkActive="heightlight">
+                                        <i class="fas fa-users" style="color:#fd7e14"></i>
+                                        <span class="px-2 font-open">Talent</span>
+                                    </a>
+                                </li>
+                                <!-- <li class="nav-item fs-5  border-0 mb-3">
+                                    <a class="nav-link" routerLink="users/list" routerLinkActive="heightlight">
+                                        <i class="fas fa-list" style="color:#198754;"></i>
+                                        <span class="px-2 font-open">List</span>
+                                    </a>
+                                </li> -->
+                                <li class="nav-item fs-5  border-0 mb-3">
+                                    <a class="nav-link" routerLink="users/edit" routerLinkActive="heightlight">
+                                        <i class="fas fa-edit" style="color:#d63384"></i>
+                                        <span class="px-2 font-open">Edit</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+
+                <!-----------------------------------------------------------End button collapse users------------------------- -->
+
+                <li class="nav-item fs-5 mb-3">
+                    <a class="nav-link" routerLink="projects">
+                        <i class="fas fa-shopping-cart" style="color:#6610f2"></i>
+                        <span class="px-2 font-open">Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item fs-5 mb-3">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user-friends" style="color:#6f42c1"></i>
+                        <span class="px-2 font-open">Clint</span>
+                    </a>
+                </li>
+                <li class="nav-item fs-5 mb-3">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-chart-bar" style="color:#dc3545"></i>
+                        <span class="px-2 font-open">Reports</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+</div>
+<!-- </div> -->

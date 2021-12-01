@@ -1,0 +1,22 @@
+{
+  "userName": "Heba",
+  "Email": "Heba@gmail.com",
+  "Phone": 1234567890,
+  "Password": "HebaElsiad@gmail.com",
+  "Rating": "five Start",
+  "typeUser": "Users",
+  "firstName": "Heba",
+  "lastName": "hanafy",
+  "whatDo": "Iam Work In Freelancer Website",
+  "Description": "HebaAli HebaAli HebaAli HebaAli HebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAliHebaAli",
+  "Language": "Arabic",
+  "dateOfBirth": "2002-12-09T00:00:00.000Z",
+  "linkAcount": "#",
+  "Address": "ElSaad",
+  "City": "Kena",
+  "State": "Dasna",
+  "zipCode": "85311",
+  "Country": "Egypt",
+  "_id": "6187e31db0cbcf4f41152daf",
+  "__v": 0
+}

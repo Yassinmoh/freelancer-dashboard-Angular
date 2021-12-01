@@ -1,0 +1,117 @@
+<section class="search-filter">
+    <div class="container">
+      <div class="row shadow">
+      <div class="row m-3">
+        <div class="col-lg">
+          <select class="form-select" id="inlineFormSelectPref">
+            <option selected >Country</option>
+            <!-- <option value="1"></option>
+            <option value="2">User</option> -->
+          </select>
+        </div>
+        <div class="col-lg">
+          <select class="form-select" id="inlineFormSelectPref">
+            <option selected >Language</option>
+
+          </select>
+        </div>
+        <div class="col-lg ">
+          <input type="number" class="form-control" placeholder="Rate" aria-label="Rate">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------- -->
+
+
+
+<div class="container-fluid mt-5">
+  <button class="btn btn-success" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">Add new user</button>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">firstName</th>
+      <th scope="col">lastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Country</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userDeta">
+              <th>{{user.ID}}</th>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.Email}}</td>
+              <td>{{user.Rating}}</td>
+              <td>{{user.Country}}</td>
+      <td>
+        <button class="btn btn-warning" type="button" (click)="onEdit(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+        <button class="btn btn-danger mx-3" (click)="DeleteUser(user)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">User Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email</label>
+            <input type="email" formControlName="Email" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Rating</label>
+            <input type="number" formControlName="Rating" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Country</label>
+            <input type="text" formControlName="Country" class="form-control" id="exampleInputPassword1">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postUserDetails()">Add</button>
+        <button type="button" class="btn btn-success" (click)="updateUserDetails()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+

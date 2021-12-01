@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+
+    <form class="col-md-5  m-auto rounded-3 border border-primary">
+        <div class="img">
+        <img class="img-fluid w-25" src="../../../assets/img/undraw_profile_pic_ic-5-t.svg" alt="" />
+    </div>
+    <div class="text-center mt-5  border-bottom">
+        <p class="fs-1 text-light">Login</p>
+    </div>
+        
+            <div class="mb-3 col-4">
+              <label for="textusername" class="form-label">Email</label>
+              <input type="email"  class="form-control" id="textusername" [(ngModel)]="loginForm.username" name="username" >
+            </div>
+            <div class="mb-3 col-4">
+              <label for="pass" class="form-label">Password</label>
+              <input type="password" class="form-control" id="pass" [(ngModel)]="loginForm.password" name="password">
+            </div>
+            <button type="submit" (click)="userLogin()" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    </div>
+
+</body>
+</html>

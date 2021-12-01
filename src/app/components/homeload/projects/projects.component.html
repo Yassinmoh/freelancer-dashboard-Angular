@@ -1,0 +1,56 @@
+
+
+
+
+<div class="container">
+        <div class="drop">
+          <select>
+            <option selected="selected">All</option>
+            <option>Android</option>
+            <option>Cloude</option>
+            <option>Web</option>
+            <option>SEO</option>
+          </select>
+
+          <div class="search">
+            <form class=" input-group">
+              <div class="input-group ">
+                <input type="search" class="search-inp"  placeholder="search">
+              </div>
+            </form>
+          </div>
+        </div>
+        </div>
+        <br>
+
+<div class="container">
+  <!-- <button (click)="ProjectService()">Show All</button> -->
+  <div class="project-card col shadow" *ngFor="let project of projects">
+    <div class="card text-left " >
+      <!-- <h2 class="pad-lef">{{project.catigori}}</h2> -->
+      <div class="card-body">
+
+        <h1 class="card-title title-color">{{project.project_name}} </h1>
+        <h3 class="card-text">{{project.description}}</h3>
+        <p class="card-text">{{project.state}}</p>
+        <h4 class="card-text">{{project.budget | currency:'USD'}}</h4>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-secondary">Detailes</a>
+        <a href="#" class="btn btn-secondary">Edite</a>
+        <a href="#" class="btn btn-secondary">Delete</a>
+
+
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+
+
+
+
+
+
+
+

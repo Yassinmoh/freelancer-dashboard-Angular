@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-12 nav-style" style="background-color:#29b2fe">
+        <app-navbar></app-navbar>
+    </nav>
+        <aside class="col-md-2 bg-light border border-primary" >
+            <app-aside-nav></app-aside-nav>
+        </aside>
+        <div class="col-md-10">
+            <div class="row">
+
+                <section class="col-md-12">
+                    <router-outlet></router-outlet>
+                </section>
+            </div>
+        </div>
+        <footer class="col-md-12  bg-dark text-light text-center text-lg-start">
+            <app-footer></app-footer>
+        </footer>
+    </div>
+</div>
