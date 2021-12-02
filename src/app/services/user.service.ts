@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators'
 import {User} from '../models/user';
 import { Observable } from 'rxjs';
@@ -17,12 +17,21 @@ constructor( private httpClient:HttpClient){
           //Show All Users
 
     getAllUsers():Observable<User[]>{
-    return this.httpClient.get<User[]>(environment.APIURL+'/users');
+      let token=localStorage.getItem('access_token')
+      let httpHeaders= new HttpHeaders({
+      'content-type': 'application/json',
+      'token':`${token}`
+      })
+
+    return this.httpClient.get<User[]>(`${environment.APIURL}/users`,{headers:httpHeaders});
   }
 
+  //Show All Users
 
   getAllUsers2(){
-    return this.httpClient.get<any>('http://localhost:3000/posts')
+
+
+    return this.httpClient.get<any>(`${environment.APIURL}/users`)
     .pipe(map((res:any)=>{
       return res
     }))
@@ -32,7 +41,7 @@ constructor( private httpClient:HttpClient){
           //Add New User
 
   postNewUser(data : any){
-    return this.httpClient.post<User>('http://localhost:3000/posts',data)
+    return this.httpClient.post<User>(environment.APIURL+'auth/register',data)
     .pipe(map((res:any)=>{
       return res
     }))
@@ -40,8 +49,13 @@ constructor( private httpClient:HttpClient){
 
           //Update The User
 
-  UpdateUser(data : any,id:any){
-    return this.httpClient.put<User>('http://localhost:3000/posts/'+id,data)
+  UpdateUser(_id:any,data : any){
+    let token=localStorage.getItem('access_token')
+    let httpHeaders= new HttpHeaders({
+      'content-type': 'application/json',
+      'token':`${token}`
+      })
+    return this.httpClient.put<User>(environment.APIURL+_id,{headers:httpHeaders})
     .pipe(map((res:any)=>{
       return res
     }))
@@ -50,7 +64,7 @@ constructor( private httpClient:HttpClient){
           //Delete The User
 
   DeleteUser(id:number){
-    return this.httpClient.delete<any>('http://localhost:3000/posts/'+id)
+    return this.httpClient.delete<any>(environment.APIURL+id)
     .pipe(map((res:any)=>{
       return res
     }))

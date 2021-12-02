@@ -10,25 +10,24 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class UserAthService {
-  httpOptions={}
-  constructor(private http:HttpClient,private router: Router) { 
+  httpOptions = {}
+  constructor(private http: HttpClient, private router: Router) {
     this.httpOptions = {
 
-      headers:new HttpHeaders({
+      headers: new HttpHeaders({
 
         'Content-Type': 'application/json'
 
       })
 
-  }
-  }
-   Login(obj:any) 
-   {
-    this.http.post(environment.APIURL + '/users/login',obj,{responseType:'text'}).subscribe((data:any)=>{
-       console.log(data)
-       localStorage.setItem('usrToken',data.token)
-       this.router.navigate(['/dash/home'])
-     })
-
     }
+  }
+  Login(obj: any) {
+    this.http.post(environment.APIURL + '/users/login', obj, { responseType: 'text' }).subscribe((data: any) => {
+      console.log(data)
+      localStorage.setItem('usrToken', data.token)
+      this.router.navigate(['/dash/home'])
+    })
+
+  }
 }

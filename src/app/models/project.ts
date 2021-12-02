@@ -1,13 +1,12 @@
 export class Project {
-
-  ID: number;
+  _id: number;
   project_name: string;
   budget: number;
   description: string;
   state: string;
-  constructor(ID:number, project_name:string,budget:number,description:string,state:string,Price:number)
+  constructor(_id:number, project_name:string,budget:number,description:string,state:string,Price:number)
   {
-    this.ID = ID;
+    this._id = _id;
     this.project_name = project_name;
     this.budget = budget;
     this.description = description;

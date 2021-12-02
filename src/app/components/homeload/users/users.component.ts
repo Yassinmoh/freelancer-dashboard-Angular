@@ -20,26 +20,25 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._userservice.getAllUsers().subscribe(userlist=>{
-      this.users=userlist
-
-
-
-
-
-    })
+    // this._userservice.getAllUsers().subscribe(userlist=>{
+    //   this.users=userlist
+    // })
 
     this.formValue=this.formbuilder.group({
+
+      userName:[''],
       firstName:[''],
       lastName:[''],
       Email:[''],
       Rating:[''],
       Country:[''],
     })
-    this.getAllUsers2()
+
+    // this.getAllUsers2()
   }
 
   postUserDetails(){
+    this.userObj.userName=this.formValue.value.userName;
     this.userObj.firstName=this.formValue.value.firstName;
     this.userObj.lastName=this.formValue.value.lastName;
     this.userObj.Email=this.formValue.value.Email;
@@ -59,8 +58,18 @@ export class UsersComponent implements OnInit {
     })
   }
 
+
+  getAllUsers(){
+    this._userservice.getAllUsers().subscribe(userlist=>{
+      this.users=userlist;
+      console.log(userlist)
+    })
+  }
+
+
   getAllUsers2(){
     this._userservice.getAllUsers2().subscribe(res=>{
+      console.log(res)
       this.userDeta=res
     })
   }
@@ -71,21 +80,23 @@ export class UsersComponent implements OnInit {
     })
   }
   onEdit(user:any){
-    this.userObj.ID=user.ID
+    this.userObj._id=user.ID
     this.formValue.controls['firstName'].setValue(user.firstName);
+    this.formValue.controls['userName'].setValue(user.userName);
     this.formValue.controls['lastName'].setValue(user.lastName);
     this.formValue.controls['Email'].setValue(user.Email);
     this.formValue.controls['Rating'].setValue(user.Rating);
     this.formValue.controls['Country'].setValue(user.Country);
   }
   updateUserDetails(){
+    this.userObj.userName=this.formValue.value.userName;
     this.userObj.firstName=this.formValue.value.firstName;
     this.userObj.lastName=this.formValue.value.lastName;
     this.userObj.Email=this.formValue.value.Email;
     this.userObj.Rating=this.formValue.value.Rating;
     this.userObj.Country=this.formValue.value.Country;
 
-    this._userservice.UpdateUser(this.userObj,this.userObj.ID).subscribe(data =>{
+    this._userservice.UpdateUser(this.userObj,this.userObj._id).subscribe(data =>{
       alert('Update Successfully')
       let ref=document.getElementById('cancel')
       ref?.click()

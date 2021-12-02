@@ -3,6 +3,7 @@ import { BehaviorSubject,  Observable, of } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +17,16 @@ export class AuthService {
   constructor(private http: HttpClient) { this.loadUserInfo(); }
 
   userLogin(login: any): Observable<boolean> {
-    if (login && login.username && login.password) {
-      return this.http.post("http://localhost:3000/auth/login", login).pipe(
+    console.log(login)
+    if (login && login.Email && login.Password) {
+      return this.http.post(environment.APIURL+'/auth/login',login).pipe(
         map((data: any) => {
           if (!data) {
             return false;
           }
-          localStorage.setItem('access_token', data.access_token);
-          localStorage.setItem('refresh_token', data.refresh_token);
-          const decodedUser = this.JwtHelper.decodeToken(data.access_token);
+          localStorage.setItem('access_token', data.accesToken);
+          localStorage.setItem('refresh_token', data.accesToken);
+          const decodedUser = this.JwtHelper.decodeToken(data.accesToken);
           localStorage.setItem('expiration', decodedUser.exp);
           this.userInfo.next(decodedUser);
           return true;
@@ -43,9 +45,9 @@ export class AuthService {
   loadUserInfo() {
     let userdata = this.userInfo.getValue();
     if (!userdata) {
-      const access_token = localStorage.getItem('access_token');
-      if (access_token) {
-        userdata = this.JwtHelper.decodeToken(access_token);
+      const accesToken = localStorage.getItem('access_token');
+      if (accesToken) {
+        userdata = this.JwtHelper.decodeToken(accesToken);
         this.userInfo.next(userdata);
       }
     }

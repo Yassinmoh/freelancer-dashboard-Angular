@@ -1,15 +1,22 @@
-body{
-    background-image: url('../../../assets/img/undraw_forgot_password_re_hxwm.svg');
-    background-size: 100% 100%;
-    background-color: #29b3fe;
-}
-form{
-    background-color: rgba(36, 37, 42, .5);
+// body{
+//     background-image: url('../../../assets/img/undraw_forgot_password_re_hxwm.svg');
+//     background-size: 100% 100%;
+//     background-color: #29b3fe;
+// }
+// form{
+//     background-color: rgba(36, 37, 42, .5);
 
-    position: relative;
-    .img{
-        position: absolute;
-        left: 43%;
-        bottom: 90%;
-    }
+//     position: relative;
+//     .img{
+//         position: absolute;
+//         left: 25%;
+//         bottom: 90%;
+//     }
+// }
+
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color:rgba(0,0,0,0.08)
 }
