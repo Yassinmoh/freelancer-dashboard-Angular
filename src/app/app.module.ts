@@ -10,9 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { LoginComponent } from './components/log-in/log-in.component';
-import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
   ],
+
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -34,10 +39,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavbarModule,
     WavesModule,
     ButtonsModule,
-    HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+
+
   ],
   providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

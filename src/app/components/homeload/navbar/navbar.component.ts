@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SystemLogService } from '../../../services/system-log.service';
+import { AuthService } from '../../../services/auth.service'
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +8,18 @@ import { SystemLogService } from '../../../services/system-log.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private SystemLogService :SystemLogService,
+  lang:string = '';
+  constructor(private authService: AuthService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.lang=localStorage.getItem('lang') || 'en';
   }
-  logout(){
-    this.SystemLogService.logout();
-    this.router.navigate(['/LogIn'])
+  logout() {
+    this.authService.logout();
+  }
+  changeLang(lang: string){
+    localStorage.setItem('lang',lang);
+    window.location.reload()
   }
 }

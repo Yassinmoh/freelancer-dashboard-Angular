@@ -11,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class ProjectsComponent implements OnInit {
    projects:Project[]=[]
    _project:any|Project;
-   oneproject:any|Project;
+   oneproject:Project={} as Project;
    editform!:FormGroup;
   constructor(private _ProjectService:ProjectService,private router: Router,private _formBuilder:FormBuilder) {
 
@@ -50,36 +50,44 @@ export class ProjectsComponent implements OnInit {
       this.editform.controls['budget'].setValue(this._project?.budget);
       this.editform.controls['description'].setValue(this._project?.description);
     },(error)=>{
-      //swal
+      console.log("Edite error")
     })
 
   }
-  update(editform:any,id:number) {
-    this._ProjectService.getProjectByID(editform.value._id).subscribe(res => {
+  update() {
+    console.log(this.editform.controls['id'].value)
+    this._ProjectService.getProjectByID(this.editform.controls['id'].value).subscribe(res => {
       this.oneproject=res
-    })
-console.log(this.oneproject)
-this.oneproject._id=editform.value._id;
-this.oneproject.project_name=editform.value.projectName;
-this.oneproject.state=editform.value.state;
-this.oneproject.budget=editform.value.budget;
-this.oneproject.description=editform.value.description;
-console.log(this.oneproject)
-this._ProjectService.UpdateProject(id,this.oneproject).subscribe(data => {
-  let ref=document.getElementById('cancel')
-      ref?.click()
-  this.editform.reset()
-  this.getAllProjects()
+      this.oneproject._id=this.editform.controls['id'].value;
+      this.oneproject.projectName=this.editform.controls['name'].value;
+      this.oneproject.state=this.editform.controls['state'].value;
+      this.oneproject.budget=this.editform.controls['budget'].value;
+      this.oneproject.description=this.editform.controls['description'].value;
+      console.log(this.oneproject)
+      console.log(this.editform.controls['id'].value)
+      // --------------------------------------------------fun UpdateProject----------------------------------//
+      this._ProjectService.UpdateProject(this.editform.controls['id'].value,this.oneproject).subscribe(data => {
+        let ref=document.getElementById('cancel')
+            ref?.click()
+        this.editform.reset()
+        this.getAllProjects()
+},(error)=>{
+  console.log("error Update")
 })
+    },(error)=>{
+      console.log("error")
+    })
+
   }
 
 
 
   delete(id:number){
     console.log(id)
-
     this._ProjectService.deleteProject(id).subscribe(res => {
       this.getAllProjects()
+    },(error)=>{
+      console.log("error delete")
     })
   }
 }

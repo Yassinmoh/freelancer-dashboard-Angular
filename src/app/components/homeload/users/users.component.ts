@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/user.service'
 import {FormBuilder,FormGroup} from '@angular/forms'
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -14,18 +15,25 @@ export class UsersComponent implements OnInit {
   formValue!:FormGroup;
   userObj:User= new User()
   userDeta:User[]=[]
-  constructor(private _userservice:UserService , private formbuilder:FormBuilder) {
+  _id: any;
 
+  constructor(private _userservice:UserService ,
+              private formbuilder:FormBuilder ,
+              private route: ActivatedRoute) {
 
+                this.route.params.subscribe(data => {
+                  this._id=data.id
+                  console.log(data)
+                })
   }
 
   ngOnInit(): void {
-    // this._userservice.getAllUsers().subscribe(userlist=>{
-    //   this.users=userlist
-    // })
+
+    this.getAllUsers()
+
 
     this.formValue=this.formbuilder.group({
-
+      _id:[''],
       userName:[''],
       firstName:[''],
       lastName:[''],
@@ -73,14 +81,19 @@ export class UsersComponent implements OnInit {
       this.userDeta=res
     })
   }
+
+
+
+
   DeleteUser(user:any){
-    this._userservice.DeleteUser(user.id).subscribe(res=>{
+    this._userservice.DeleteUser(user._id).subscribe(res=>{
       alert('User Deleted Successfully')
-      this.getAllUsers2()
+      this.getAllUsers()
     })
   }
   onEdit(user:any){
-    this.userObj._id=user.ID
+    this._id=user._id
+    this.formValue.controls['_id'].setValue(user._id);
     this.formValue.controls['firstName'].setValue(user.firstName);
     this.formValue.controls['userName'].setValue(user.userName);
     this.formValue.controls['lastName'].setValue(user.lastName);
@@ -88,7 +101,9 @@ export class UsersComponent implements OnInit {
     this.formValue.controls['Rating'].setValue(user.Rating);
     this.formValue.controls['Country'].setValue(user.Country);
   }
-  updateUserDetails(){
+  updateUserDetails(user: any) {
+
+    this.userObj._id=this.formValue.value._id;
     this.userObj.userName=this.formValue.value.userName;
     this.userObj.firstName=this.formValue.value.firstName;
     this.userObj.lastName=this.formValue.value.lastName;
@@ -96,12 +111,19 @@ export class UsersComponent implements OnInit {
     this.userObj.Rating=this.formValue.value.Rating;
     this.userObj.Country=this.formValue.value.Country;
 
-    this._userservice.UpdateUser(this.userObj,this.userObj._id).subscribe(data =>{
+    console.log(this.userObj)
+    console.log(this.userObj._id)
+        //  this.route.params.subscribe(data => {
+        //   this.userObj._id=data.id
+        //           console.log("data", data)
+        //         })
+    this._userservice.UpdateUser(this._id,this.userObj).subscribe(user =>{
       alert('Update Successfully')
+      console.log(user)
       let ref=document.getElementById('cancel')
       ref?.click()
       this.formValue.reset()
-      this.getAllUsers2()
+      this.getAllUsers()
     })
   }
 }

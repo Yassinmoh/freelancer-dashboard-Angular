@@ -17,11 +17,21 @@
           <i class="fas fa-user-circle fs-5"></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <a class="dropdown-item waves-light font-open" mdbWavesEffect (click)="logout()">Log out</a>
-          <li><a class="dropdown-item font-open" routerLink="Profile">Profile</a></li>
-          <li><a class="dropdown-item font-open" href="#">Something else here</a></li>
+          <a class="dropdown-item waves-light font-open cur" mdbWavesEffect (click)="logout()">Log out</a>
+          <li><a class="dropdown-item font-open cur" routerLink="Profile">Profile</a></li>
+          <li><a class="dropdown-item font-open cur" href="#">Something else here</a></li>
         </ul>
       </div>
+      <!-- <div class="dropdown  me-3">
+        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fas fa-flag fs-5"></i>
+        </button>
+        <select class="dropdown-menu" aria-labelledby="dropdownMenuButton1" (change)="changeLang($event.target.value)">
+          <option><a class="dropdown-item font-open cur" >Arabic</a></option>
+          <option><a class="dropdown-item font-open cur" >English</a></option>
+        </select>
+      </div> -->
 
 
       <form class="d-flex">

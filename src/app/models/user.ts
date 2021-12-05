@@ -1,7 +1,7 @@
 import { MatListSubheaderCssMatStyler } from "@angular/material/list";
 //firstName lastName userName Email Rating Country
 export class User {
-    _id?: number;
+    _id?: string;
     firstName?: string;
     lastName?: string;
     userName?: string;
@@ -21,8 +21,8 @@ export class User {
     State?:string;
     zipCode?:string;
     Country?:string;
-
-    constructor(_id?: number,
+    constructor(
+      _id?: string,
       firstName?: string,
       lastName?: string,
       userName?: string,
@@ -43,7 +43,7 @@ export class User {
       zipCode?:string,
       Country?:string)
     {
-      this._id = _id;
+      this._id=_id;
       this.firstName = firstName;
       this.lastName = lastName;
       this.userName = userName;

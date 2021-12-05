@@ -23,18 +23,18 @@
 <div class="container">
 <div class="row">
 <!-- <button (click)="ProjectService()">Show All</button>   -->
-<div class="project-card col-md-6 " *ngFor="let project of projects">
+<div class="project-card col-md-12 " *ngFor="let project of projects">
 <div class="card text-left " >
  <!-- <h2 class="pad-lef">{{project.catigori}}</h2>  -->
 <div class="card-body">
-  <h1 class="card-title title-color">{{project.project_name}} </h1>
+  <h1 class="card-title title-color">{{project.projectName}} </h1>
   <h3 class="card-text">{{project.description}}</h3>
   <p class="card-text">{{project.state}}</p>
   <h4 class="card-text">{{project.budget | currency:'USD'}}</h4>
 </div>
 <div class="card-footer">
-<a href="javascript:void(0)" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-  (click)="Edite(project._id)" >Edite</a>
+<a href="javascript:void(0)" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+  (click)="Edite(project._id)" >Edit</a>
 <a href="javascript:void(0)" class="btn btn-danger m-1"  (click)="delete(project._id)">Delete</a>
 </div>
 </div>
@@ -54,8 +54,8 @@
 </div>
 <!-- //---------------------------------------------------**reactive form**--------------------------------------------// -->
 <div class="modal-body">
-  <form class="row g-3" [formGroup]="editform" >
-    <input type="number" class="form-control d-none" id="Projectid" formControlName="id" >
+  <form class="row g-3" [formGroup]="editform" (ngSubmit)="update()"  >
+    <input type="number" class="form-control d-none" id="Projectid" formControlName="id" required>
     <div class="col-md-12">
         <label for="ProjectName" class="form-label">Project Name</label>
         <input type="type" class="form-control" id="ProjectName" formControlName="name" >
@@ -73,13 +73,14 @@
       <textarea class="form-control" id="ProjectDescription" formControlName="description"  rows="3">
        </textarea>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
 </form>
 <!-- //---------------------------------------------------**reactive form**--------------------------------------------// -->
 </div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary" (click)="update(editform,editform.value._id)" >Update</button>
-</div>
+
 </div>
 </div>
 </div>

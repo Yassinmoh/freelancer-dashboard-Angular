@@ -9,7 +9,13 @@ import { environment } from 'src/environments/environment';
 })
 
 export class UserService {
-  users:User[]=[]
+  users:User[]=[];
+  private token=localStorage.getItem('access_token')
+  private options = { headers: new HttpHeaders({
+    'content-type': 'application/json',
+    'token':`${this.token}`
+  })};
+
 constructor( private httpClient:HttpClient){
 
 }
@@ -17,13 +23,13 @@ constructor( private httpClient:HttpClient){
           //Show All Users
 
     getAllUsers():Observable<User[]>{
-      let token=localStorage.getItem('access_token')
-      let httpHeaders= new HttpHeaders({
-      'content-type': 'application/json',
-      'token':`${token}`
-      })
+      // let token=localStorage.getItem('access_token')
+      // let httpHeaders= new HttpHeaders({
+      // 'content-type': 'application/json',
+      // 'token':`${token}`
+      // })
 
-    return this.httpClient.get<User[]>(`${environment.APIURL}/users`,{headers:httpHeaders});
+    return this.httpClient.get<User[]>(`${environment.APIURL}/users`,this.options);
   }
 
   //Show All Users
@@ -37,6 +43,12 @@ constructor( private httpClient:HttpClient){
     }))
   }
 
+  //Get user by ID:
+  getUserById(userId: string){
+    return this.httpClient.get<User>(`${environment.APIURL}/users/${userId}`);
+  }
+
+
 
           //Add New User
 
@@ -49,13 +61,9 @@ constructor( private httpClient:HttpClient){
 
           //Update The User
 
-  UpdateUser(_id:any,data : any){
-    let token=localStorage.getItem('access_token')
-    let httpHeaders= new HttpHeaders({
-      'content-type': 'application/json',
-      'token':`${token}`
-      })
-    return this.httpClient.put<User>(environment.APIURL+_id,{headers:httpHeaders})
+  UpdateUser(_id: any , user:User){
+    //"http://localhost:5000/users/61a7a94fcd55cb18fd8d7ead"
+    return this.httpClient.put<User>(`${environment.APIURL}/users/${_id}`,user,this.options)
     .pipe(map((res:any)=>{
       return res
     }))
@@ -63,8 +71,8 @@ constructor( private httpClient:HttpClient){
 
           //Delete The User
 
-  DeleteUser(id:number){
-    return this.httpClient.delete<any>(environment.APIURL+id)
+  DeleteUser(_id:any){
+    return this.httpClient.delete<any>(`${environment.APIURL}/users/${_id}`,this.options)
     .pipe(map((res:any)=>{
       return res
     }))

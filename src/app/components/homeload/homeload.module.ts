@@ -23,7 +23,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthGuard } from 'src/app/services/auth.guard';
 // import { UserAuthGuard } from './user-auth.guard';
-
+// import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   { path: 'home', component: HomeComponent,children:[
 
@@ -56,6 +56,7 @@ const routes: Routes = [
     ProjectsComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     // BrowserModule,
     RouterModule.forChild(routes),

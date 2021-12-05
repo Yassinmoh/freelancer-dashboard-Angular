@@ -4,6 +4,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
   JwtHelper = new JwtHelperService()
 
 
-  constructor(private http: HttpClient) { this.loadUserInfo(); }
+  constructor(private http: HttpClient, private router: Router) { this.loadUserInfo(); }
 
   userLogin(login: any): Observable<boolean> {
     console.log(login)
@@ -24,8 +25,10 @@ export class AuthService {
           if (!data) {
             return false;
           }
+          console.log("data",data)
           localStorage.setItem('access_token', data.accesToken);
           localStorage.setItem('refresh_token', data.accesToken);
+          localStorage.setItem('userName', data.userName);
           const decodedUser = this.JwtHelper.decodeToken(data.accesToken);
           localStorage.setItem('expiration', decodedUser.exp);
           this.userInfo.next(decodedUser);
@@ -58,5 +61,15 @@ export class AuthService {
   callRefershToken(payload: any) {
     return this.http.post("http://localhost:3000/auth/refreshtoken", payload);
   }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('access_token');
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("expiration");
+    localStorage.removeItem("userName");
+    this.userInfo.next(null);
+    this.router.navigate(['/login']);
+}
 
 }

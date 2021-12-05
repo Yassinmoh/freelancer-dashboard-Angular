@@ -1,86 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
 </head>
+
 <body class="d-flex align-items-center">
+  <section class="login-block">
     <div class="container">
-        <div class="row">
+      <div class="row">
 
-    <form class="col-md-5  m-auto rounded-3 border border-primary">
-        <div class="img">
-        <img class="img-fluid w-100" src="../../../assets/img/freelancer-logo.svg" alt="" />
-    </div>
-    <div class="text-center mt-5  border-bottom">
-        <p class="fs-1 text-light">Login</p>
-    </div>
 
-            <div class="mb-3 col-4">
-              <label for="textusername" class="form-label">Email</label>
-              <input type="email"  class="form-control" id="textusername" [(ngModel)]="loginForm.Email" name="Email" >
+        <div class="col-md-4 login-sec">
+          <img src="../../../assets//img/freelancer-logo.svg" alt="" class="logo-fre">
+          <form class="login-form">
+            <div class="form-group">
+              <label for="textusername" class="text-uppercase">Email</label>
+              <input type="email" class="form-control" placeholder="Enter Email" id="textusername" [(ngModel)]="loginForm.Email" name="Email">
+
             </div>
-            <div class="mb-3 col-4">
-              <label for="pass" class="form-label">Password</label>
-              <input type="password" class="form-control" id="pass" [(ngModel)]="loginForm.Password" name="Password">
+            <div class="form-group">
+              <label for="pass" class="text-uppercase">Password</label>
+              <input type="password" class="form-control" placeholder="Enter Password" id="pass" [(ngModel)]="loginForm.Password" name="Password">
             </div>
-            <button type="submit" (click)="userLogin()" class="btn btn-primary">Submit</button>
-    </form>
 
 
+            <button type="submit" class="btn btn-login float-right mt-3"  (click)="userLogin()">Login</button>
 
-
-    <!-- <form class="form-signin mg-btm">
-    	<h3 class="heading-desc">
-		Login to Bootsnipp</h3>
-		<div class="social-box">
-			<div class="row mg-btm">
-             <div class="col-md-12">
-                <a href="#" class="btn btn-primary btn-block">
-                  <i class="icon-facebook"></i>    Login with Facebook
-                </a>
-			</div>
-			</div>
-			<div class="row">
-			<div class="col-md-12">
-                <a href="#" class="btn btn-info btn-block" >
-                  <i class="icon-twitter"></i>    Login with Twitter
-                </a>
-            </div>
-          </div>
-		</div>
-		<div class="main">
-
-		<input type="text" class="form-control" placeholder="Email" autofocus>
-        <input type="password" class="form-control" placeholder="Password">
-
-        Are you a business? <a href=""> Get started here</a>
-		<span class="clearfix"></span>
+          </form>
         </div>
-		<div class="login-footer">
-		<div class="row">
-                        <div class="col-xs-6 col-md-6">
-                            <div class="left-section">
-								<a href="">Forgot your password?</a>
-								<a href="">Sign up now</a>
-							</div>
-                        </div>
-                        <div class="col-xs-6 col-md-6 pull-right">
-                            <button type="submit" class="btn btn-large btn-danger pull-right">Login</button>
-                        </div>
-                    </div>
+        <div class="col-md-8 banner-sec">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
 
-		</div>
-      </form> -->
+
+          </div>
 
 
 
 
 
-  </div>
-    </div>
-
+        </div>
+        </div>
+      </div>
+  </section>
 </body>
+
 </html>

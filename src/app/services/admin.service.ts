@@ -15,13 +15,12 @@ constructor( private httpClient:HttpClient){
 
 }
 
-    
-  
-     getAllAdmins():Observable<Admin[]>{
-     
+
+
+    getAllAdmins():Observable<Admin[]>{
       return this.httpClient.get<Admin[]>(environment.APIURL+'/users/admin');
-      console.log(environment.APIURL);
+
     }
-  
+
 }
 
