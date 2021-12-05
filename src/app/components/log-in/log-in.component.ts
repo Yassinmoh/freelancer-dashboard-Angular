@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from '../../services/auth.service';
 
@@ -10,7 +11,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private authService: AuthService,
-              private router:Router) { }
+              private router:Router,
+              public translate:TranslateService) { }
   ngOnInit(): void { }
 
   loginForm = {

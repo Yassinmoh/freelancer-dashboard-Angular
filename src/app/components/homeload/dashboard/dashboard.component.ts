@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
@@ -19,7 +20,8 @@ export class DashboardComponent implements OnInit {
   userName:string =''
 
   constructor(private _adminservice:AdminService,
-              private _authService:AuthService) {
+              private _authService:AuthService,
+              public translate:TranslateService) {
 
 
               }

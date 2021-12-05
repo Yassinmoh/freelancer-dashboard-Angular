@@ -118,12 +118,15 @@
       <div class="col-md-9 col-lg-10 main">
 
         <h3>Welcome Mr: {{userName}} !</h3>
-        <!-- <h1 class="text-center">{{"DASHBOARD" | translate}}</h1> -->
+        <h1 class="text-center">{{"Dashboard" | translate}}</h1>
+        <!-- <button class="btn btn-primary" (click)="translate.use('ar')">Ar</button>
+        <button class="btn btn-success" (click)="translate.use('en')">En</button> -->
         <h1>
         </h1>
         <h1 class="display-2 text-center m-3 hidden-xs-down">
 
             </h1>
+
 
         <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -187,7 +190,7 @@
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
                               <h2 class="number">10,368</h2>
-                              <span class="desc">members online</span>
+                              <span class="desc">{{"MEMBERS ONLINE" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-account-o"></i>
                               </div>
@@ -196,7 +199,7 @@
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
                               <h2 class="number">388,688</h2>
-                              <span class="desc">items sold</span>
+                              <span class="desc">{{"PROJECTS COMPLETED" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-shopping-cart"></i>
                               </div>
@@ -205,7 +208,7 @@
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
                               <h2 class="number">1,086</h2>
-                              <span class="desc">this week</span>
+                              <span class="desc">{{"NEW USERS" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-calendar-note"></i>
                               </div>
@@ -214,7 +217,7 @@
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
                               <h2 class="number">$1,060,386</h2>
-                              <span class="desc">total earnings</span>
+                              <span class="desc">{{"TOTAL EARNINGS" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-money"></i>
                               </div>
@@ -273,7 +276,7 @@
                     <div class="col-xl-4">
                         <!-- TASK PROGRESS-->
                         <div class="task-progress">
-                            <h3 class="title-3">task progress</h3>
+                            <h3 class="title-3">{{"Task Progress" | translate}}</h3>
                             <div class="au-skill-container">
                                 <div class="au-progress">
                                     <span class="au-progress__title">Web Design</span>
@@ -327,10 +330,10 @@
               <table class="table table-striped">
                 <thead class="thead-inverse">
                   <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">firstName</th>
-                    <th scope="col">lastName</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">{{"ID" | translate}}</th>
+                    <th scope="col">{{"firstName" | translate}}</th>
+                    <th scope="col">{{"lastName" | translate}}</th>
+                    <th scope="col">{{"Email" | translate}}</th>
                   </tr>
                 </thead>
                 <tbody >

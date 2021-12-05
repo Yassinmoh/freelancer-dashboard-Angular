@@ -17,13 +17,23 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { ProjectsComponent } from './projects/projects.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthGuard } from 'src/app/services/auth.guard';
 // import { UserAuthGuard } from './user-auth.guard';
 // import { HttpClientModule } from '@angular/common/http';
+
+
+
+//translate Modules:
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
+
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent,children:[
 
@@ -66,9 +76,24 @@ const routes: Routes = [
     // BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory:createTranslateLoader,
+        deps:[HttpClient]
+      }
+    })
   ],
   providers:[UserService,AuthService,AuthGuard],
   bootstrap: [HomeComponent]
 })
 export class HomeloadModule { }
+
+
+
+//translate:
+
+export function createTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http,'./assets/i18n/','.json')
+}

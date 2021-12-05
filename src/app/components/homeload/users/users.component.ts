@@ -3,6 +3,7 @@ import { User } from '../../../models/user';
 import { UserService } from '../../../services/user.service'
 import {FormBuilder,FormGroup} from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -19,7 +20,8 @@ export class UsersComponent implements OnInit {
 
   constructor(private _userservice:UserService ,
               private formbuilder:FormBuilder ,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public translate:TranslateService) {
 
                 this.route.params.subscribe(data => {
                   this._id=data.id

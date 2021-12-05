@@ -4,14 +4,14 @@
       <div class="row m-3">
         <div class="col-lg">
           <select class="form-select" id="inlineFormSelectPref">
-            <option selected >Country</option>
+            <option selected >{{"Country" | translate}}</option>
             <!-- <option value="1"></option>
             <option value="2">User</option> -->
           </select>
         </div>
         <div class="col-lg">
           <select class="form-select" id="inlineFormSelectPref">
-            <option selected >Language</option>
+            <option selected >{{"Language" | translate}}</option>
 
           </select>
         </div>
@@ -43,14 +43,14 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">userName</th>
-      <th scope="col">firstName</th>
-      <th scope="col">lastName</th>
-      <th scope="col">Email</th>
-      <th scope="col">Rating</th>
-      <th scope="col">Country</th>
-      <th scope="col">Action</th>
+      <th scope="col">{{"ID" | translate}}</th>
+      <th scope="col">{{"userName" | translate}}</th>
+      <th scope="col">{{"firstName" | translate}}</th>
+      <th scope="col">{{"lastName" | translate}}</th>
+      <th scope="col">{{"Email" | translate}}</th>
+      <th scope="col">{{"Rating" | translate}}</th>
+      <th scope="col">{{"Country" | translate}}</th>
+      <th scope="col">{{"Action" | translate}}</th>
     </tr>
   </thead>
   <tbody>
@@ -63,8 +63,8 @@
               <td>{{user.Rating}}</td>
               <td>{{user.Country}}</td>
       <td>
-        <button class="btn btn-warning" type="button" (click)="onEdit(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-ng-href="#exampleModal">Edit</button>
-        <button class="btn btn-danger mx-3" (click)="DeleteUser(user)">Delete</button>
+        <button class="btn btn-warning" type="button" (click)="onEdit(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-ng-href="#exampleModal">{{"Edit" | translate}}</button>
+        <button class="btn btn-danger mx-3" (click)="DeleteUser(user)">{{"Delete" | translate}}</button>
       </td>
     </tr>
   </tbody>
@@ -81,43 +81,43 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel">User Details</h1>
+        <h1 class="modal-title" id="exampleModalLabel">{{"User Details" | translate}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="formValue">
 
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">user Name</label>
+            <label for="exampleInputEmail1" class="form-label">{{"userName" | translate}}</label>
             <input type="text" formControlName="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <label for="exampleInputEmail1" class="form-label">{{"firstName" | translate}}</label>
             <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Last Name</label>
+            <label for="exampleInputPassword1" class="form-label">{{"lastName" | translate}}</label>
             <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Email</label>
+            <label for="exampleInputPassword1" class="form-label">{{"Email" | translate}}</label>
             <input type="email" formControlName="Email" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Rating</label>
+            <label for="exampleInputPassword1" class="form-label">{{"Rating" | translate}}</label>
             <input type="number" formControlName="Rating" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Country</label>
+            <label for="exampleInputPassword1" class="form-label">{{"Country" | translate}}</label>
             <input type="text" formControlName="Country" class="form-control" id="exampleInputPassword1">
           </div>
 
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">{{"Close" | translate}}</button>
         <!-- <button type="button" class="btn btn-primary" (click)="postUserDetails()">Add</button> -->
-        <button type="button" class="btn btn-success" (click)="updateUserDetails(users)">Update</button>
+        <button type="button" class="btn btn-success" (click)="updateUserDetails(users)">{{"Update" | translate}}</button>
       </div>
     </div>
   </div>

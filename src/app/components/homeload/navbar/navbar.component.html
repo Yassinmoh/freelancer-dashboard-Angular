@@ -17,26 +17,27 @@
           <i class="fas fa-user-circle fs-5"></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <a class="dropdown-item waves-light font-open cur" mdbWavesEffect (click)="logout()">Log out</a>
-          <li><a class="dropdown-item font-open cur" routerLink="Profile">Profile</a></li>
-          <li><a class="dropdown-item font-open cur" href="#">Something else here</a></li>
+          <a class="dropdown-item waves-light font-open cur" mdbWavesEffect (click)="logout()">{{"Log out" | translate}}</a>
+          <li><a class="dropdown-item font-open cur" routerLink="Profile">{{"Profile" | translate}}</a></li>
         </ul>
       </div>
+      <button class="btn btn-warning" (click)="translate.use('ar')">Ar</button>
+      <button class="btn btn-success" (click)="translate.use('en')">EN</button>
       <!-- <div class="dropdown  me-3">
         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
           <i class="fas fa-flag fs-5"></i>
         </button>
-        <select class="dropdown-menu" aria-labelledby="dropdownMenuButton1" (change)="changeLang($event.target.value)">
-          <option><a class="dropdown-item font-open cur" >Arabic</a></option>
-          <option><a class="dropdown-item font-open cur" >English</a></option>
+        <select class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
+          <option><a class="dropdown-item font-open cur" (click)="translate.use('ar')" mdbWavesEffect >Arabic</a></option>
+          <option><a class="dropdown-item font-open cur" (click)="translate.use('en')" mdbWavesEffect >English</a></option>
         </select>
       </div> -->
 
 
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-warning font-open" type="submit">Search</button>
+        <button class="btn btn-warning font-open" type="submit">{{"Search" | translate}}</button>
       </form>
     </div>
 

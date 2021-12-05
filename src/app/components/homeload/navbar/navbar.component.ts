@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth.service'
 
 @Component({
@@ -10,7 +11,8 @@ import { AuthService } from '../../../services/auth.service'
 export class NavbarComponent implements OnInit {
   lang:string = '';
   constructor(private authService: AuthService,
-    private router: Router) { }
+              private router: Router,
+              public translate:TranslateService) { }
 
   ngOnInit(): void {
     this.lang=localStorage.getItem('lang') || 'en';
