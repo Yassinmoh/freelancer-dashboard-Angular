@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -28,7 +28,7 @@ import { AuthGuard } from 'src/app/services/auth.guard';
 
 
 //translate Modules:
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core'
+import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
@@ -85,7 +85,7 @@ const routes: Routes = [
       }
     })
   ],
-  providers:[UserService,AuthService,AuthGuard],
+  providers:[UserService,AuthService,AuthGuard,TranslateService],
   bootstrap: [HomeComponent]
 })
 export class HomeloadModule { }

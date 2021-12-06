@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material/material.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HighchartsChartModule } from 'highcharts-angular';
@@ -11,14 +11,16 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { LoginComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
+import { HomeloadModule } from './components/homeload/homeload.module';
 
 
 
 
 @NgModule({
   declarations: [
+
     AppComponent,
     NotFoundComponent,
     LoginComponent,
@@ -28,10 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
 
   imports: [
+    HomeloadModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     MaterialModule,
     HighchartsChartModule,
     FormsModule,
@@ -39,11 +42,11 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarModule,
     WavesModule,
     ButtonsModule,
-    FontAwesomeModule,
+    
 
 
   ],
-  providers: [],
+  providers: [TranslateService],
 
   bootstrap: [AppComponent]
 })

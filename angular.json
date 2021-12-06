@@ -78,6 +78,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "aot": true
+         },
           "configurations": {
             "production": {
               "browserTarget": "myApp:build:production"
