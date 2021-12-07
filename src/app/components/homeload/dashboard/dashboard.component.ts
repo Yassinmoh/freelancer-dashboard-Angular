@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService ,LangChangeEvent} from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
@@ -18,12 +18,21 @@ export class DashboardComponent implements OnInit {
 
   admins:Admin[]=[]
   userName:string =''
-
+  textDir:string ='ltr'
   constructor(private _adminservice:AdminService,
               private _authService:AuthService,
               public translate:TranslateService) {
-
-
+                this.translate.onLangChange.subscribe((event:LangChangeEvent)=>{
+                  if(event.lang == 'ar')
+                  {
+                    this.textDir = 'rtl';
+                  }
+                  else
+                  {
+                    this.textDir = 'ltr';
+                  }
+                })
+                console.log(this.textDir)
               }
 
   ngOnInit() {

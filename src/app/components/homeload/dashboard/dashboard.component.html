@@ -110,14 +110,14 @@
 </head>
 
 <body>
-
-  <div class="container-fluid" id="main">
+  <!-- dir="{{textDir}}" -->
+  <div class="container-fluid" id="main" >
     <div class="row row-offcanvas row-offcanvas-left">
       <!--/col-->
 
       <div class="col-md-9 col-lg-10 main">
 
-        <h3>Welcome Mr: {{userName}} !</h3>
+        <h3>{{"Welcome Mr" | translate}}: {{userName}} </h3>
         <h1 class="text-center">{{"Dashboard" | translate}}</h1>
         <!-- <button class="btn btn-primary" (click)="translate.use('ar')">Ar</button>
         <button class="btn btn-success" (click)="translate.use('en')">En</button> -->
@@ -236,16 +236,16 @@
                     <div class="col-xl-8">
                         <!-- RECENT REPORT 2-->
                         <div class="recent-report2">
-                            <h3 class="title-3">recent reports</h3>
+                            <h3 class="title-3">{{"Recent Reports" | translate}}</h3>
                             <div class="chart-info">
                                 <div class="chart-info__left">
                                     <div class="chart-note">
                                         <span class="dot dot--blue"></span>
-                                        <span>products</span>
+                                        <span>{{"Projects" | translate}}</span>
                                     </div>
                                     <div class="chart-note">
                                         <span class="dot dot--green"></span>
-                                        <span>Services</span>
+                                        <span>{{"Services" | translate}}</span>
                                     </div>
                                 </div>
                                 <div class="chart-info-right">

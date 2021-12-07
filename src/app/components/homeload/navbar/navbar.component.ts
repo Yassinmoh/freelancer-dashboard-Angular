@@ -9,19 +9,24 @@ import { AuthService } from '../../../services/auth.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  lang:string = '';
+
+currentLang:string=""
   constructor(private authService: AuthService,
               private router: Router,
-              public translate:TranslateService) { }
+              public translate:TranslateService) {
+                this.currentLang=localStorage.getItem('currentLang') || 'en'
+                this.translate.use(this.currentLang)
+              }
 
   ngOnInit(): void {
-    this.lang=localStorage.getItem('lang') || 'en';
+    // this.lang=localStorage.getItem('lang') || 'en';
   }
   logout() {
     this.authService.logout();
   }
-  changeLang(lang: string){
-    localStorage.setItem('lang',lang);
-    window.location.reload()
+  changecurrentLang(lang: string){
+    this.translate.use(lang)
+    localStorage.setItem('currentLang',lang);
+
   }
 }

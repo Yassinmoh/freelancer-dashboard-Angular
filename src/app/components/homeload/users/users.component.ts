@@ -4,6 +4,10 @@ import { UserService } from '../../../services/user.service'
 import {FormBuilder,FormGroup} from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import Swal from 'sweetalert2'
+
+
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -43,8 +47,6 @@ export class UsersComponent implements OnInit {
       Rating:[''],
       Country:[''],
     })
-
-    // this.getAllUsers2()
   }
 
   postUserDetails(){
@@ -89,7 +91,41 @@ export class UsersComponent implements OnInit {
 
   DeleteUser(user:any){
     this._userservice.DeleteUser(user._id).subscribe(res=>{
-      alert('User Deleted Successfully')
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
+      })
       this.getAllUsers()
     })
   }
@@ -120,7 +156,13 @@ export class UsersComponent implements OnInit {
         //           console.log("data", data)
         //         })
     this._userservice.UpdateUser(this._id,this.userObj).subscribe(user =>{
-      alert('Update Successfully')
+      Swal.fire({
+        title: 'success!',
+        text: 'Update Successfully',
+        icon: 'success',
+        confirmButtonText: 'ok'
+      })
+
       console.log(user)
       let ref=document.getElementById('cancel')
       ref?.click()

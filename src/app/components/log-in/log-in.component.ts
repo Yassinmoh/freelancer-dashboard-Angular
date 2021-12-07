@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -27,9 +28,31 @@ export class LoginComponent implements OnInit {
 
       if(res){
         console.log(res)
+
         this.router.navigate(["/dash/home"])
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Signed in successfully'
+        })
       }else{
-        alert('failed Login');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Email or Password are Invalid',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
       }
     },
       (error) => {
@@ -40,8 +63,12 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+
+}
+
+
+
 }
 
 
 
-}

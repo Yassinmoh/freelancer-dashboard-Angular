@@ -15,7 +15,7 @@
   "userName":"اسم المستخدم",
   "firstName":"الاسم الاول",
   "lastName":"الاسم الاخير",
-  "Email":"الايميل",
+  "Email":"الحساب البريدي",
   "Rating":"التقييم",
   "Country":"الدولة",
   "Action":"اجراء",
@@ -28,5 +28,9 @@
   "Profile":"الصفحة الشخصية",
   "Search":"البحث",
   "ID":"رقم الهوية",
-  "Language":"اللغة"
+  "Language":"اللغة",
+  "Welcome Mr":"مرحبا ",
+  "Recent Reports":"احدث التقارير",
+  "Services":"الخدمات",
+  "© 2021 Copyright Freelancer.com":" حقوق النشر محفوظه ل فريلانسر.كوم © "
 }
