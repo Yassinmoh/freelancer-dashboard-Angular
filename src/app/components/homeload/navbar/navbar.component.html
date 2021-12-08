@@ -21,6 +21,8 @@
           <li><a class="dropdown-item font-open cur" routerLink="Profile">{{"Profile" | translate}}</a></li>
         </ul>
       </div>
+
+      <h3 class="mr-3 fw-bolder pt-3 "> {{userName}} </h3>
       <button class="btn btn-warning" (click)="changecurrentLang('ar')">Ar</button>
       <button class="btn btn-success" (click)="changecurrentLang('en')">EN</button>
       <!-- <div class="dropdown  me-3">
@@ -42,4 +44,5 @@
     </div>
 
   </div>
+
 </nav>

@@ -9,7 +9,7 @@ import { AuthService } from '../../../services/auth.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  userName:string =''
 currentLang:string=""
   constructor(private authService: AuthService,
               private router: Router,
@@ -19,7 +19,7 @@ currentLang:string=""
               }
 
   ngOnInit(): void {
-    // this.lang=localStorage.getItem('lang') || 'en';
+    this.userName = JSON.stringify(localStorage.getItem('userName') || '{}')
   }
   logout() {
     this.authService.logout();

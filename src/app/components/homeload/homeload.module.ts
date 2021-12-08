@@ -24,12 +24,14 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AuthGuard } from 'src/app/services/auth.guard';
 // import { UserAuthGuard } from './user-auth.guard';
 // import { HttpClientModule } from '@angular/common/http';
+import { ChartModule } from 'angular-highcharts';
 
 
 
 //translate Modules:
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ReportsComponent } from './reports/reports.component';
 
 
 
@@ -40,6 +42,8 @@ const routes: Routes = [
     { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
     { path: 'Dashboard', component: DashboardComponent },
     { path: 'Profile', component: ProfileComponent },
+    { path: 'reports', component: ReportsComponent },
+
     { path: 'projects', component: ProjectsComponent },
     {
       path: 'users', children: [
@@ -63,11 +67,13 @@ const routes: Routes = [
     EditComponent,
     HomeComponent,
     AreaStackedComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ReportsComponent
   ],
   imports: [
     HttpClientModule,
     CommonModule,
+    ChartModule,
     // BrowserModule,
     RouterModule.forChild(routes),
     HighchartsChartModule,

@@ -117,10 +117,8 @@
 
       <div class="col-md-9 col-lg-10 main">
 
-        <h3>{{"Welcome Mr" | translate}}: {{userName}} </h3>
+
         <h1 class="text-center">{{"Dashboard" | translate}}</h1>
-        <!-- <button class="btn btn-primary" (click)="translate.use('ar')">Ar</button>
-        <button class="btn btn-success" (click)="translate.use('en')">En</button> -->
         <h1>
         </h1>
         <h1 class="display-2 text-center m-3 hidden-xs-down">
@@ -136,52 +134,6 @@
           <strong></strong>
         </div>
 
-        <!-- <div class="row mb-3">
-          <div class="col-xl-3 col-lg-6">
-            <div class="card card-inverse card-success">
-              <div class="card-block bg-success">
-                <div class="rotate">
-                  <i class="fa fa-user fa-4x"></i>
-                </div>
-                <h6 class="text-uppercase fs-3 fw-bolder">Users</h6>
-                <h1 class="display-1">134</h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6">
-            <div class="card card-inverse card-danger">
-              <div class="card-block bg-danger">
-                <div class="rotate">
-                  <i class="fa fa-list fa-4x"></i>
-                </div>
-                <h6 class="text-uppercase fs-3 fw-bolder">Projects</h6>
-                <h1 class="display-1">87</h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6">
-            <div class="card card-inverse card-info">
-              <div class="card-block bg-info">
-                <div class="rotate">
-                  <i class="fa fa-twitter fa-4x"></i>
-                </div>
-                <h6 class="text-uppercase fs-3 fw-bolder">Tweets</h6>
-                <h1 class="display-1">125</h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6">
-            <div class="card card-inverse card-warning">
-              <div class="card-block bg-warning">
-                <div class="rotate">
-                  <i class="fa fa-share fa-4x"></i>
-                </div>
-                <h6 class="text-uppercase fs-3 fw-bolder">Shares</h6>
-                <h1 class="display-1">36</h1>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
         <section class="statistic">
           <div class="section__content section__content--p30">
@@ -249,25 +201,12 @@
                                     </div>
                                 </div>
                                 <div class="chart-info-right">
-                                    <div class="rs-select2--dark rs-select2--md m-r-10">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">All Properties</option>
-                                            <option value="">Products</option>
-                                            <option value="">Services</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--dark rs-select2--sm">
-                                        <select class="js-select2 au-select-dark" name="time">
-                                            <option selected="selected">All Time</option>
-                                            <option value="">By Month</option>
-                                            <option value="">By Day</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="recent-report__chart">
+
+                              <div class="bar" [chart]="barChart"></div>
                                 <canvas id="recent-rep2-chart"></canvas>
                             </div>
                         </div>
@@ -275,8 +214,11 @@
                     </div>
                     <div class="col-xl-4">
                         <!-- TASK PROGRESS-->
+
                         <div class="task-progress">
-                            <h3 class="title-3">{{"Task Progress" | translate}}</h3>
+                          <div class="pie" [chart]="donutChart"></div>
+                          <div class="area" [chart]="areaChart"></div>
+                            <!-- <h3 class="title-3">{{"Task Progress" | translate}}</h3>
                             <div class="au-skill-container">
                                 <div class="au-progress">
                                     <span class="au-progress__title">Web Design</span>
@@ -310,7 +252,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- END TASK PROGRESS-->
                     </div>
