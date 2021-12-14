@@ -1,4 +1,4 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5 " [ngStyle]="{'direction': textDir}">
     <div class="row">
         <div class="col-md-6 col-lg-3">
             <div class="statistic__item">
@@ -14,7 +14,7 @@
         <div class="col-md-6 col-lg-3">
             <div class="statistic__item">
                 <h2 class="number text-center">{{projectsLength}}</h2>
-                <span class="desc">{{"PROJECTS" | translate}}</span>
+                <span class="desc">{{"ALL PROJECTS" | translate}}</span>
                 <div class="icon">
                     <i class="zmdi zmdi-shopping-cart"></i>
                 </div>
@@ -22,8 +22,8 @@
         </div>
         <div class="col-md-6 col-lg-3">
             <div class="statistic__item">
-                <h2 class="number text-center">1,086</h2>
-                <span class="desc">{{"CLINTS" | translate}}</span>
+                <h2 class="number text-center">{{projectPending}}</h2>
+                <span class="desc">{{"PENDING PROJECTS" | translate}}</span>
                 <div class="icon">
                     <i class="zmdi zmdi-calendar-note"></i>
                 </div>
@@ -31,8 +31,8 @@
         </div>
         <div class="col-md-6 col-lg-3">
             <div class="statistic__item">
-                <h2 class="number text-center">$1,060</h2>
-                <span class="desc">{{"EARNINGS" | translate}}</span>
+                <h2 class="number text-center">{{projectCompletedNo}}</h2>
+                <span class="desc">{{"COMPLETED PROJECTS" | translate}}</span>
                 <div class="icon">
                     <i class="zmdi zmdi-money"></i>
                 </div>
@@ -41,9 +41,11 @@
     </div>
 </div>
 <div >
-  <div class="row">
+  <div>
+    <div class="bar col mb-5" [chart]="barChart"></div>
+  </div>
+  <div class="row mt-5">
     <div class="pie col" [chart]="donutChart"></div>
-    <div class="bar col" [chart]="barChart"></div>
     <div class="area col" [chart]="areaChart"></div>
   </div>
 </div>
