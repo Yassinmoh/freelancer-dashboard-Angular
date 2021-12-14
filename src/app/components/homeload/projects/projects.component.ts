@@ -3,6 +3,7 @@ import {Project} from './../../../models/project'
 import {ProjectService} from '../../../services/project.service'
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -13,6 +14,11 @@ export class ProjectsComponent implements OnInit {
    _project:any|Project;
    oneproject:Project={} as Project;
    editform!:FormGroup;
+   totalProjectsLength:any
+   page:number=1
+
+
+
   constructor(private _ProjectService:ProjectService,private router: Router,private _formBuilder:FormBuilder) {
 
   }
@@ -31,8 +37,8 @@ export class ProjectsComponent implements OnInit {
     this._ProjectService.getAllProjects().subscribe(projectlist=>{
     this.projects=projectlist;
     console.log(this.projects)
-    console.log(this.projects)
-
+      this.totalProjectsLength=projectlist.length;
+      // console.log("this.totalProjectsLength",this.totalProjectsLength)
     })
   };
   viewDetails(pId: number): void {
@@ -67,6 +73,12 @@ export class ProjectsComponent implements OnInit {
       console.log(this.editform.controls['id'].value)
       // --------------------------------------------------fun UpdateProject----------------------------------//
       this._ProjectService.UpdateProject(this.editform.controls['id'].value,this.oneproject).subscribe(data => {
+        Swal.fire({
+          title: 'success!',
+          text: 'Update Successfully',
+          icon: 'success',
+          confirmButtonText: 'ok'
+        })
         let ref=document.getElementById('cancel')
             ref?.click()
         this.editform.reset()
@@ -85,6 +97,41 @@ export class ProjectsComponent implements OnInit {
   delete(id:number){
     console.log(id)
     this._ProjectService.deleteProject(id).subscribe(res => {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
+      })
       this.getAllProjects()
     },(error)=>{
       console.log("error delete")

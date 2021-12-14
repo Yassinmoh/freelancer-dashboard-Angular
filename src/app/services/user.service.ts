@@ -77,6 +77,17 @@ constructor( private httpClient:HttpClient){
       return res
     }))
   }
+
+
+  getNoOfUsers():Observable<any>{
+    return this.httpClient.get(environment.APIURL +'/users')
+  }
+
+
+
+  // onUploadeImg(){
+  //   this.httpClient.post(`${environment.APIURL}/upload/`,this.options)
+  // }
 }
 
 

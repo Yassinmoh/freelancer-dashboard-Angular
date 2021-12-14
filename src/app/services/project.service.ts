@@ -21,8 +21,21 @@ export class ProjectService {
         'token':`${token}`
       })
     }
-
   }
+
+
+
+// get no of pending projects
+getNoOfPendingProjects():Observable<any>{
+  return this.httpClient.get(environment.APIURL +'/project/pending')
+}
+getNoOfCompletedProjects():Observable<any>{
+  return this.httpClient.get(environment.APIURL +'/project/completed')
+}
+
+
+
+
 
   getAllProjects():Observable<Project[]>{
 
@@ -32,23 +45,23 @@ export class ProjectService {
     //   'token':`${token}`
     //   }){headers:httpHeaders}
 
-    return this.httpClient.get<Project[]>(`${environment.APIURL}/projects/`,this.httpoptions);
+    return this.httpClient.get<Project[]>(`${environment.APIURL}/project/all`,this.httpoptions);
       console.log(environment.APIURL);
   };
   getProjectByID(pID: number):Observable<Project>
   {
-    return this.httpClient.get<Project>(environment.APIURL +'/projects/oneproject/'+pID);
+    return this.httpClient.get<Project>(environment.APIURL +'/project/oneproject/'+pID);
   };
   deleteProject(pID: number):Observable<Project>
   {
-      return this.httpClient.delete<any>(environment.APIURL + '/projects/deleteproject/' +pID)
+      return this.httpClient.delete<any>(environment.APIURL + '/project/deleteproject/' +pID)
     .pipe(map((res:any)=>{
       return res
     }))
   };
   UpdateProject(_id:any,data:any){
     console.log(_id)
-    return this.httpClient.put<Project>(environment.APIURL+'/projects/'+_id,data,this.httpoptions)
+    return this.httpClient.put<Project>(environment.APIURL+'/project/'+_id,data,this.httpoptions)
     .pipe(map((res:any)=>{
       return res
     }))

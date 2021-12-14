@@ -5,7 +5,7 @@
   height: 100px;
   background-color: #139ff0;
   border: 1px solid;
-  
+
 
   .text-pro{
     color: #ffffff;
@@ -71,4 +71,23 @@
 .btn-secondary{
 
 margin: 20px;
+}
+
+
+.my-pagination .ngx-pagination .current {
+  background: red;
+}
+
+
+.btn-edit{
+  border-radius:38% 62% 74% 26% / 100% 73% 27% 0% ;
+  background-color:#A5D8FF;
+  color: #2E294E;
+}
+
+
+.btn-delete{
+  border-radius:38% 62% 74% 26% / 100% 73% 27% 0% ;
+  background-color:#BFB6BB;
+  color:#2E294E;
 }

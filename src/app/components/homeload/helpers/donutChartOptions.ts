@@ -32,11 +32,11 @@ export const donutChartOptions: Options = {
     {
       type: 'pie',
       data: [
-        { name: 'a', y: 1, color: '#eeeeee' },
-        { name: 'b', y: 2, color: '#393e46' },
-        { name: 'c', y: 3, color: '#00adb5' },
-        { name: 'd', y: 4, color: '#eeeeee' },
-        { name: 'e', y: 5, color: '#506ef9' },
+        { name: 'Jan', y: 1, color: '#eeeeee' },
+        { name: 'Feb', y: 2, color: '#393e46' },
+        { name: 'Mar', y: 3, color: '#00adb5' },
+        { name: 'Apr', y: 4, color: '#eeeeee' },
+        { name: 'May', y: 5, color: '#506ef9' },
       ],
     },
   ],

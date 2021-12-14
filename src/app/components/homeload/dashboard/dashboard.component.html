@@ -27,6 +27,7 @@
     body,
     html {
       height: 100%;
+      width: 100%;
     }
     /* workaround modal-open padding issue */
 
@@ -42,7 +43,7 @@
  * --------------------------------------------------
  */
 
-    @media screen and (max-width: 48em) {
+    /* @media screen and (max-width: 48em) {
       .row-offcanvas {
         position: relative;
         -webkit-transition: all 0.25s ease-out;
@@ -62,13 +63,13 @@
         width: 33%;
         height: 100%;
       }
-    }
+    } */
     /*
  * Off Canvas wider at sm breakpoint
  * --------------------------------------------------
  */
 
-    @media screen and (max-width: 34em) {
+    /* @media screen and (max-width: 34em) {
       .row-offcanvas-left .sidebar-offcanvas {
         left: -45%;
       }
@@ -79,7 +80,7 @@
       .sidebar-offcanvas {
         width: 45%;
       }
-    }
+    } */
 
     .card {
       overflow: hidden;
@@ -105,20 +106,25 @@
       -ms-transform: rotate(-44deg);
       transform: rotate(-44deg); */
     }
+
+.desc{
+  /* padding-left: 75px;
+  margin-top: 30px; */
+}
+
   </style>
 
 </head>
 
 <body>
   <!-- dir="{{textDir}}" -->
-  <div class="container-fluid" id="main" >
-    <div class="row row-offcanvas row-offcanvas-left">
+  <div class="container-fluid" id="main"  >
+    <div >
       <!--/col-->
 
-      <div class="col-md-9 col-lg-10 main">
+      <div >
 
 
-        <h1 class="text-center">{{"Dashboard" | translate}}</h1>
         <h1>
         </h1>
         <h1 class="display-2 text-center m-3 hidden-xs-down">
@@ -126,13 +132,7 @@
             </h1>
 
 
-        <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-          <strong></strong>
-        </div>
+
 
 
         <section class="statistic">
@@ -141,17 +141,19 @@
                   <div class="row">
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
-                              <h2 class="number">10,368</h2>
-                              <span class="desc">{{"MEMBERS ONLINE" | translate}}</span>
+                              <h2 class="number text-center">{{usersLength}}</h2>
+
+                              <span class="desc text-center">{{"USERS" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-account-o"></i>
                               </div>
+
                           </div>
                       </div>
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
-                              <h2 class="number">388,688</h2>
-                              <span class="desc">{{"PROJECTS COMPLETED" | translate}}</span>
+                              <h2 class="number text-center">{{projectsLength}}</h2>
+                              <span class="desc">{{"ALL PROJECTS" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-shopping-cart"></i>
                               </div>
@@ -159,8 +161,8 @@
                       </div>
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
-                              <h2 class="number">1,086</h2>
-                              <span class="desc">{{"NEW USERS" | translate}}</span>
+                              <h2 class="number text-center">{{projectPending}}</h2>
+                              <span class="desc">{{"PENDING PROJECTS" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-calendar-note"></i>
                               </div>
@@ -168,8 +170,8 @@
                       </div>
                       <div class="col-md-6 col-lg-3">
                           <div class="statistic__item">
-                              <h2 class="number">$1,060,386</h2>
-                              <span class="desc">{{"TOTAL EARNINGS" | translate}}</span>
+                              <h2 class="number text-center">{{projectCompletedNo}}</h2>
+                              <span class="desc">{{"COMPLETED PROJECTS" | translate}}</span>
                               <div class="icon">
                                   <i class="zmdi zmdi-money"></i>
                               </div>
@@ -185,7 +187,7 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-8">
+                    <div class="col-xl-12">
                         <!-- RECENT REPORT 2-->
                         <div class="recent-report2">
                             <h3 class="title-3">{{"Recent Reports" | translate}}</h3>
@@ -193,69 +195,23 @@
                                 <div class="chart-info__left">
                                     <div class="chart-note">
                                         <span class="dot dot--blue"></span>
-                                        <span>{{"Projects" | translate}}</span>
+                                        <span>{{"Completed" | translate}}</span>
+                                    </div>
+                                    <div class="chart-note">
+                                        <span class="dot dot--black"></span>
+                                        <span>{{"Pendding" | translate}}</span>
                                     </div>
                                     <div class="chart-note">
                                         <span class="dot dot--green"></span>
-                                        <span>{{"Services" | translate}}</span>
+                                        <span>{{"All" | translate}}</span>
                                     </div>
-                                </div>
-                                <div class="chart-info-right">
-
                                 </div>
                             </div>
                             <div class="recent-report__chart">
-
                               <div class="bar" [chart]="barChart"></div>
-                                <canvas id="recent-rep2-chart"></canvas>
                             </div>
+                          </div>
                         </div>
-                        <!-- END RECENT REPORT 2             -->
-                    </div>
-                    <div class="col-xl-4">
-                        <!-- TASK PROGRESS-->
-
-                        <div class="task-progress">
-                          <div class="pie" [chart]="donutChart"></div>
-                          <div class="area" [chart]="areaChart"></div>
-                            <!-- <h3 class="title-3">{{"Task Progress" | translate}}</h3>
-                            <div class="au-skill-container">
-                                <div class="au-progress">
-                                    <span class="au-progress__title">Web Design</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="90">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="au-progress">
-                                    <span class="au-progress__title">HTML5/CSS3</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="85">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="au-progress">
-                                    <span class="au-progress__title">WordPress</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="95">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="au-progress">
-                                    <span class="au-progress__title">Support</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="95">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
-                        <!-- END TASK PROGRESS-->
-                    </div>
                 </div>
             </div>
         </div>
@@ -270,18 +226,20 @@
           <div class="col-lg-12 col-md-12">
             <div class="table-responsive">
               <table class="table table-striped">
-                <thead class="thead-inverse">
+                <thead class=" thead-style">
                   <tr>
                     <th scope="col">{{"ID" | translate}}</th>
+                    <th scope="col">{{"userName" | translate}}</th>
                     <th scope="col">{{"firstName" | translate}}</th>
                     <th scope="col">{{"lastName" | translate}}</th>
                     <th scope="col">{{"Email" | translate}}</th>
                   </tr>
                 </thead>
                 <tbody >
-                  <tr *ngFor="let admin of admins" >
-                    <td>{{admin.ID}}</td>
+                  <tr *ngFor="let admin of admins ; let i = index" >
+                    <td>{{i + 1 }}</td>
                     <td>{{admin.userName}}</td>
+                    <td>{{admin.firstName}}</td>
                     <td>{{admin.lastName}}</td>
                     <td>{{admin.Email}}</td>
                   </tr>

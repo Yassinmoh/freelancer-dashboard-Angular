@@ -29,6 +29,9 @@ export class AuthService {
           localStorage.setItem('access_token', data.accesToken);
           localStorage.setItem('refresh_token', data.accesToken);
           localStorage.setItem('userName', data.userName);
+          localStorage.setItem('firstName', data.firstName);
+          localStorage.setItem('Email', data.Email);
+          localStorage.setItem('lastName', data.lastName);
           const decodedUser = this.JwtHelper.decodeToken(data.accesToken);
           localStorage.setItem('expiration', decodedUser.exp);
           this.userInfo.next(decodedUser);
@@ -68,6 +71,11 @@ export class AuthService {
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("expiration");
     localStorage.removeItem("userName");
+    localStorage.removeItem("Email");
+    localStorage.removeItem("lastName");
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("__paypal_storage__");
+    localStorage.removeItem("currentLang");
     this.userInfo.next(null);
     this.router.navigate(['/login']);
 }

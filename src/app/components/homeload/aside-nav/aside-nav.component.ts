@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-aside-nav',
@@ -7,8 +7,10 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./aside-nav.component.scss']
 })
 export class AsideNavComponent implements OnInit {
+  textDir:any ='ltr'
+  constructor(public translate:TranslateService) {
 
-  constructor(public translate:TranslateService) { }
+  }
 
   ngOnInit(): void {
   }

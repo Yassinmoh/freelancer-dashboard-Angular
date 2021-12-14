@@ -18,7 +18,7 @@ export const areaChartOptions: Options={
     enabled:false,
   },
   title:{
-    text:'Area Chart'
+    text:'New Members'
   },
   yAxis:{
     visible:false,

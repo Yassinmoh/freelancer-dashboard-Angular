@@ -7,6 +7,7 @@ export class User {
     userName?: string;
     Status?: string;
     Email?:string;
+    Image?:string;
     Password?:string;
     Phone?:number;
     typeUser?:string;
@@ -23,6 +24,7 @@ export class User {
     Country?:string;
     constructor(
       _id?: string,
+      Image?: string,
       firstName?: string,
       lastName?: string,
       userName?: string,
@@ -44,6 +46,7 @@ export class User {
       Country?:string)
     {
       this._id=_id;
+      this.Image=Image;
       this.firstName = firstName;
       this.lastName = lastName;
       this.userName = userName;

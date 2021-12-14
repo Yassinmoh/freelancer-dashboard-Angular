@@ -1,6 +1,10 @@
 <section class="search-filter">
     <div class="container">
-      <div class="row shadow">
+
+
+
+
+      <div class="row shadow mt-5">
       <div class="row m-3">
         <div class="col-lg">
           <select class="form-select" id="inlineFormSelectPref">
@@ -41,9 +45,10 @@
 
 
 <table class="table table-striped">
-  <thead>
+  <thead class="thead-style">
     <tr>
       <th scope="col">{{"ID" | translate}}</th>
+      <th scope="col">Avatar</th>
       <th scope="col">{{"userName" | translate}}</th>
       <th scope="col">{{"firstName" | translate}}</th>
       <th scope="col">{{"lastName" | translate}}</th>
@@ -54,29 +59,30 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
-              <th>{{user._id}}</th>
-              <th>{{user.userName}}</th>
+    <tr *ngFor="let user of users | paginate: { itemsPerPage: 2, currentPage: page,totalItems:totalUsersLength }                       ; let i = index ">
+              <td>{{ i + 1 }}</td>
+              <td><img src="../../../../assets/img/user.png" class="avatar" alt="Avatar" /></td>
+              <td>{{user.userName}}</td>
               <td>{{user.firstName}}</td>
               <td>{{user.lastName}}</td>
               <td>{{user.Email}}</td>
               <td>{{user.Rating}}</td>
               <td>{{user.Country}}</td>
       <td>
-        <button class="btn btn-warning" type="button" (click)="onEdit(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-ng-href="#exampleModal" >{{"Edit" | translate}}</button>
-        <button class="btn btn-danger mx-3" (click)="DeleteUser(user)">{{"Delete" | translate}}</button>
+        <button class="btn btn-edit" type="button" (click)="onEdit(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-ng-href="#exampleModal" >{{"Edit" | translate}}</button>
+        <button class="btn btn-delete mx-3" (click)="DeleteUser(user)">{{"Delete" | translate}}</button>
       </td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
 </section>
 
 
 
 <!-- Modal -->
-<!-- <button class="btn btn-primary" (click)="getAllUsers()">Show All Users</button> -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -107,6 +113,10 @@
             <label for="exampleInputPassword1" class="form-label">{{"Rating" | translate}}</label>
             <input type="number" formControlName="Rating" class="form-control" id="exampleInputPassword1">
           </div>
+          <!-- <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">{{"Image" | translate}}</label>
+            <input type="file" formControlName="Image" class="form-control" id="exampleInputPassword1" (change)="onFileSelected($event)">
+          </div> -->
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">{{"Country" | translate}}</label>
             <input type="text" formControlName="Country" class="form-control" id="exampleInputPassword1">

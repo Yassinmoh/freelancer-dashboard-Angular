@@ -1,30 +1,33 @@
-.heightlight{
-  background-color:#29b3feb4 ;
+.heightlight {
+  background-color: #90a4dfb7;
   padding: 10px;
-  border-radius:8px;
+  border-radius: 8px;
 }
-nav{
-    span{
-        color:black !important;
+nav {
+  span{
+      color:black !important;
+  }
+  .bk-tr {
+    background: none !important;
+    .accordionStyle {
+      background: none !important;
     }
-    .bk-tr{
-        background: none !important;
-        .accordionStyle{
-            background:none !important;
-     }
-     .lasdiv{
-        background:none !important;
-
-     }
-
+    .lasdiv {
+      background: none !important;
     }
-
+  }
 }
 
-.font-open{
-  font-family: 'Open Sans', sans-serif;
+.font-open {
+  font-family: 'Roboto', sans-serif !important;
 }
 
 
+// -----------------------------------------------------------------------------------------------
 
-
+body{
+  height: 100vh;
+}
+#sidebarMenu{
+  height: 100vh;
+}

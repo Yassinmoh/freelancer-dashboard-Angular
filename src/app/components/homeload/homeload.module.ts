@@ -25,7 +25,7 @@ import { AuthGuard } from 'src/app/services/auth.guard';
 // import { UserAuthGuard } from './user-auth.guard';
 // import { HttpClientModule } from '@angular/common/http';
 import { ChartModule } from 'angular-highcharts';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 //translate Modules:
@@ -73,6 +73,7 @@ const routes: Routes = [
   imports: [
     HttpClientModule,
     CommonModule,
+    NgxPaginationModule,
     ChartModule,
     // BrowserModule,
     RouterModule.forChild(routes),

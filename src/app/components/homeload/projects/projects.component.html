@@ -23,7 +23,7 @@
 <div class="container">
 <div class="row">
 <!-- <button (click)="ProjectService()">Show All</button>   -->
-<div class="project-card col-md-12 " *ngFor="let project of projects">
+<div class="project-card col-md-12 " *ngFor="let project of projects | paginate: { itemsPerPage: 2, currentPage: page,totalItems:totalProjectsLength }">
 <div class="card text-left " >
  <!-- <h2 class="pad-lef">{{project.catigori}}</h2>  -->
 <div class="card-body">
@@ -33,14 +33,17 @@
   <h4 class="card-text">{{project.budget | currency:'USD'}}</h4>
 </div>
 <div class="card-footer">
-<a href="javascript:void(0)" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-  (click)="Edite(project._id)" >Edit</a>
-<a href="javascript:void(0)" class="btn btn-danger m-1"  (click)="delete(project._id)">Delete</a>
+  <!-- <button class="btn btn-edit" (click)="Edite(project._id)">{{"Edit" | translate}}</button>
+  <button class="btn btn-delete" (click)="delete(project._id)">{{"Delete" | translate}}</button> -->
+ <a href="javascript:void(0)" class="btn btn-warning m-1 btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+  (click)="Edite(project._id)" >{{"Edit" | translate}}</a>
+<a href="javascript:void(0)" class="btn btn-danger m-1 btn-delete"  (click)="delete(project._id)">{{"Delete" | translate}}</a>
 </div>
 </div>
 <br>
 </div>
 </div>
+<pagination-controls class="my-pagination" (pageChange)="page = $event"></pagination-controls>
 </div>
 <!-- <a href="javascript:void(0)" class="btn btn-primary m-1" (click)="viewDetails(project.id)">Edite</a>  -->
 
@@ -49,7 +52,7 @@
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+  <h5 class="modal-title" id="staticBackdropLabel"></h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <!-- //---------------------------------------------------**reactive form**--------------------------------------------// -->
@@ -57,25 +60,25 @@
   <form class="row g-3" [formGroup]="editform" (ngSubmit)="update()"  >
     <input type="number" class="form-control d-none" id="Projectid" formControlName="id" required>
     <div class="col-md-12">
-        <label for="ProjectName" class="form-label">Project Name</label>
+        <label for="ProjectName" class="form-label">{{"Project Name" | translate}}</label>
         <input type="type" class="form-control" id="ProjectName" formControlName="name" >
     </div>
     <div class="col-md-12">
-      <label for="ProjectState" class="form-label">Project State</label>
+      <label for="ProjectState" class="form-label"> {{"Project State" | translate}}</label>
       <input type="text" class="form-control" id="ProjectState" formControlName="state" >
     </div>
     <div class="col-md-12">
-      <label for="ProjectBudget" class="form-label">Project Budget</label>
+      <label for="ProjectBudget" class="form-label">{{"Project Budget" | translate}} </label>
       <input type="number" class="form-control" id="ProjectBudget" formControlName="budget"  >
     </div>
     <div class="col-md-12 mb-3">
-      <label for="ProjectDescription" class="form-label">Project Description</label>
+      <label for="ProjectDescription" class="form-label"> {{"Project Description" | translate}}</label>
       <textarea class="form-control" id="ProjectDescription" formControlName="description"  rows="3">
        </textarea>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">{{"Close" | translate}}</button>
+      <button type="submit" class="btn btn-primary">{{"Update" | translate}}</button>
     </div>
 </form>
 <!-- //---------------------------------------------------**reactive form**--------------------------------------------// -->

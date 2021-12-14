@@ -12,3 +12,30 @@
 
 }
 
+.avatar {
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+
+.btn-edit{
+  border-radius:38% 62% 74% 26% / 100% 73% 27% 0% ;
+  background-color:#A5D8FF;
+  color: #2E294E;
+}
+
+
+.btn-delete{
+  border-radius:38% 62% 74% 26% / 100% 73% 27% 0% ;
+  background-color:#BFB6BB;
+  color:#2E294E;
+}
+
+.thead-style{
+  background-color:#304896be ;
+  color: aliceblue;
+  padding: 20px  40px;
+}

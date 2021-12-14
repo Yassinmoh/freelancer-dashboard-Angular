@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
-  <div class="container-fluid">
+ <nav class="navbar navbar-expand-lg    ">
+  <div class="container-fluid ">
     <a class="navbar-brand font-open" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,36 +13,36 @@
 
       <div class="dropdown  me-3">
         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <i class="fas fa-user-circle fs-5"></i>
+        aria-expanded="false">
+        <div class="image">
+          <a href="#">
+            <img src="../../../../assets/img/user.png" alt="John Doe" />
+          </a>
+        </div>
+
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <a class="dropdown-item waves-light font-open cur" mdbWavesEffect (click)="logout()">{{"Log out" | translate}}</a>
-          <li><a class="dropdown-item font-open cur" routerLink="Profile">{{"Profile" | translate}}</a></li>
+          <a class="dropdown-item font-open cur" routerLink="Profile">{{"Profile" | translate}}</a>
         </ul>
       </div>
 
-      <h3 class="mr-3 fw-bolder pt-3 "> {{userName}} </h3>
-      <button class="btn btn-warning" (click)="changecurrentLang('ar')">Ar</button>
-      <button class="btn btn-success" (click)="changecurrentLang('en')">EN</button>
-      <!-- <div class="dropdown  me-3">
-        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <i class="fas fa-flag fs-5"></i>
-        </button>
-        <select class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
-          <option><a class="dropdown-item font-open cur" (click)="translate.use('ar')" mdbWavesEffect >Arabic</a></option>
-          <option><a class="dropdown-item font-open cur" (click)="translate.use('en')" mdbWavesEffect >English</a></option>
-        </select>
-      </div> -->
 
+       <button class="btn arp-btn" (click)="changecurrentLang('ar')">Ar</button>
+      <button class="btn eng-btn" (click)="changecurrentLang('en')">EN</button>
 
-      <form class="d-flex">
+      <!-- <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-warning font-open" type="submit">{{"Search" | translate}}</button>
-      </form>
-    </div>
+      </form> -->
+
+
+
+     </div>
 
   </div>
 
 </nav>
+
+
+

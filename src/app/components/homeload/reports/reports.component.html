@@ -1,6 +1,49 @@
-<div class="container">
-  <div class="pie" [chart]="donutChart"></div>
-  <div class="bar" [chart]="barChart"></div>
-  <div class="area" [chart]="areaChart"></div>
-</div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="statistic__item">
+                <h2 class="number text-center">{{usersLength}}</h2>
 
+                <span class="desc text-center">{{"USERS" | translate}}</span>
+                <div class="icon">
+                    <i class="zmdi zmdi-account-o"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="statistic__item">
+                <h2 class="number text-center">{{projectsLength}}</h2>
+                <span class="desc">{{"PROJECTS" | translate}}</span>
+                <div class="icon">
+                    <i class="zmdi zmdi-shopping-cart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="statistic__item">
+                <h2 class="number text-center">1,086</h2>
+                <span class="desc">{{"CLINTS" | translate}}</span>
+                <div class="icon">
+                    <i class="zmdi zmdi-calendar-note"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="statistic__item">
+                <h2 class="number text-center">$1,060</h2>
+                <span class="desc">{{"EARNINGS" | translate}}</span>
+                <div class="icon">
+                    <i class="zmdi zmdi-money"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div >
+  <div class="row">
+    <div class="pie col" [chart]="donutChart"></div>
+    <div class="bar col" [chart]="barChart"></div>
+    <div class="area col" [chart]="areaChart"></div>
+  </div>
+</div>
