@@ -2027,11 +2027,19 @@
   // -----------------------------------------------
 .acc-sty{
   font-size:37px;
+  font-weight: 700;
 }
 .use-inf{
 font-size:19px;
+font-weight: 700 !important;
 }
 
 .label-style {
   font-size: 17px;
+}
+
+@media(max-width:1200px){
+  .foo{
+    margin-top: 160vh !important;
+  }
 }
