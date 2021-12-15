@@ -20,7 +20,7 @@ constructor( private httpClient:HttpClient){
 
 }
 
-
+//Get All Admins 
 
     getAllAdmins():Observable<Admin[]>{
       return this.httpClient.get<Admin[]>(environment.APIURL+'/users/admin',this.options);
