@@ -32,6 +32,7 @@ export class AuthService {
           localStorage.setItem('firstName', data.firstName);
           localStorage.setItem('Email', data.Email);
           localStorage.setItem('lastName', data.lastName);
+          localStorage.setItem('_id', data._id);
           const decodedUser = this.JwtHelper.decodeToken(data.accesToken);
           localStorage.setItem('expiration', decodedUser.exp);
           this.userInfo.next(decodedUser);

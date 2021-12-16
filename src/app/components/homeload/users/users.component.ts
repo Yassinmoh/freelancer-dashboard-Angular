@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/user.service'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2'
@@ -61,12 +61,12 @@ export class UsersComponent implements OnInit {
     this.formValue = this.formbuilder.group({
       _id: [''],
       // Image: [''],
-      userName: [''],
-      firstName: [''],
-      lastName: [''],
-      Email: [''],
-      Rating: [''],
-      Country: [''],
+      userName: ['',Validators.required],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      Email: ['',Validators.required],
+      Rating: ['',Validators.required],
+      Country: ['',Validators.required],
     })
   }
 

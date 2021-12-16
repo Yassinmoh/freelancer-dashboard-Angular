@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg">
           <select class="form-select" id="inlineFormSelectPref">
-            <option selected >{{"Language" | translate}}</option>
+            <option selected>{{"Language" | translate}}</option>
 
           </select>
         </div>
@@ -48,7 +48,7 @@
   <thead class="thead-style">
     <tr>
       <th scope="col">{{"ID" | translate}}</th>
-      <th scope="col">Avatar</th>
+      <!-- <th scope="col">Avatar</th> -->
       <th scope="col">{{"userName" | translate}}</th>
       <th scope="col">{{"firstName" | translate}}</th>
       <th scope="col">{{"lastName" | translate}}</th>
@@ -61,7 +61,7 @@
   <tbody>
     <tr *ngFor="let user of users | paginate: { itemsPerPage: 2, currentPage: page,totalItems:totalUsersLength }                       ; let i = index ">
               <td>{{ i + 1 }}</td>
-              <td><img src="../../../../assets/img/user.png" class="avatar" alt="Avatar" /></td>
+              <!-- <td><img src="../../../../assets/img/user.png" class="avatar" alt="Avatar" /></td> -->
               <td>{{user.userName}}</td>
               <td>{{user.firstName}}</td>
               <td>{{user.lastName}}</td>

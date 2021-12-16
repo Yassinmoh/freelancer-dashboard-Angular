@@ -32,6 +32,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReportsComponent } from './reports/reports.component';
+import { ClientComponent } from './client/client.component';
 
 
 
@@ -51,6 +52,7 @@ const routes: Routes = [
         { path: 'edit', component: EditComponent },
       ]
     },
+    {path:'client',component: ClientComponent}
   ] },
   // canActivate: [UserAuthGuard]
 ]
@@ -68,7 +70,8 @@ const routes: Routes = [
     HomeComponent,
     AreaStackedComponent,
     ProjectsComponent,
-    ReportsComponent
+    ReportsComponent,
+    ClientComponent
   ],
   imports: [
     HttpClientModule,

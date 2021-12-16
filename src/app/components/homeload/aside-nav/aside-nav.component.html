@@ -1,4 +1,4 @@
-  <div class="row" >
+  <div class="row"   [ngStyle]="{'direction': textDir}">
     <nav id="sidebarMenu" class="col-md-12 d-md-block sidebar collapse">
       <span class="avatar avt avatar-sm rounded-circle ">
         <img src="../../../../assets/img/user2.jpeg" alt="" class=" img-fluid">
@@ -48,12 +48,12 @@
                         <span class="px-2 font-open">{{"Projects" | translate}}</span>
                     </a>
                 </li>
-                <li class="nav-item fs-5 mb-3">
-                    <a class="nav-link" href="#">
+                <!-- <li class="nav-item fs-5 mb-3">
+                    <a class="nav-link" routerLink="client">
                         <i class="fas fa-user-friends" style="color:#6f42c1"></i>
                         <span class="px-2 font-open">{{"Clint" | translate}}</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item fs-5 mb-3">
                     <a class="nav-link" routerLink="reports">
                         <i class="fas fa-chart-bar" style="color:#dc3545"></i>
