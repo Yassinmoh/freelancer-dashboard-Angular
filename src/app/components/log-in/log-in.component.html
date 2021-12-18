@@ -16,19 +16,30 @@
 
         <div class="col-md-4 login-sec">
           <img src="../../../assets//img/freelancer-logo.svg" alt="" class="logo-fre">
-          <form class="login-form">
+          <form class="login-form" #form="ngForm">
             <div class="form-group">
               <label for="textusername" class="text-uppercase">Email</label>
-              <input type="email" class="form-control" placeholder="Enter Email" id="textusername" [(ngModel)]="loginForm.Email" name="Email" required >
-
+              <input type="email" class="form-control" placeholder="Enter Email" id="textusername" [(ngModel)]="loginForm.Email" name="Email" required ngModel #Email="ngModel" minlength="7">
+              <div class="alert alert-danger" role="alert" *ngIf="Email.errors?.required && Email.touched ">
+                Email is required
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="Email.touched && Email.errors?.minlength">
+                Email must be more than 7 characters
+              </div>
             </div>
             <div class="form-group">
               <label for="pass" class="text-uppercase">Password</label>
-              <input type="password" class="form-control" placeholder="Enter Password" id="pass" [(ngModel)]="loginForm.Password" name="Password" required>
+              <input type="password" class="form-control" placeholder="Enter Password" id="pass" [(ngModel)]="loginForm.Password" name="Password" required ngModel #Password="ngModel"  minlength="5">
+              <div class=" alert alert-danger" role="alert" *ngIf="Password.errors?.required && Password.touched ">
+                Password is required
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="Password.touched && Password.errors?.minlength">
+                Email must be more than 5 characters
+              </div>
             </div>
 
 
-            <button type="submit" class="btn btn-login float-right mt-3"  (click)="userLogin() ">Login</button>
+            <button type="submit" class="btn btn-login float-right mt-3"  (click)="userLogin()" [disabled]="form.invalid" >Login</button>
 
           </form>
         </div>

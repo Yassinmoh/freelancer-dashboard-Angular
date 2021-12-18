@@ -61,14 +61,19 @@ export class UsersComponent implements OnInit {
     this.formValue = this.formbuilder.group({
       _id: [''],
       // Image: [''],
-      userName: ['',[Validators.required,Validators.minLength(4)]],
-      firstName: ['',[Validators.required,Validators.minLength(4)]],
-      lastName: ['',[Validators.required,Validators.minLength(4)]],
-      Email: ['',[Validators.required,Validators.minLength(6)]],
+      userName: ['',Validators.required],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      Email: ['',[Validators.email,Validators.required]],
       Rating: ['',Validators.required],
-      Country: ['',[Validators.required,Validators.minLength(4)]],
+      Country: ['',Validators.required],
     })
   }
+
+  get formValueControl() {
+    return this.formValue.controls;
+  }
+
 
   postUserDetails() {
     this.userObj.userName = this.formValue.value.userName;

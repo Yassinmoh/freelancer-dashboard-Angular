@@ -47,12 +47,12 @@ export class LoginComponent implements OnInit {
           title: 'Signed in successfully'
         })
       }else{
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Email or Password are Invalid',
-          footer: '<a href="">Why do I have this issue?</a>'
-        })
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Oops...',
+        //   text: 'Email or Password are Invalid',
+        //   footer: '<a href="">Why do I have this issue?</a>'
+        // })
       }
     },
       (error) => {

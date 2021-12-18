@@ -61,11 +61,20 @@
     <input type="number" class="form-control d-none" id="Projectid" formControlName="id" required>
     <div class="col-md-12">
         <label for="ProjectName" class="form-label">{{"Project Name" | translate}}</label>
-        <input type="type" class="form-control" id="ProjectName" formControlName="name" >
+        <input type="type" class="form-control" id="ProjectName" formControlName="name" required minLength="4" >
+        <h3 class="text-danger" *ngIf="editform.controls['name']?.errors && editform.controls['name']?.touched">
+          * Project Name is Required
+        </h3>
+        <h3 class="text-danger" *ngIf="editform.controls['name']?.hasError('minLength')">
+          * Project Name should be more than 4 characters
+        </h3>
     </div>
     <div class="col-md-12">
       <label for="ProjectState" class="form-label"> {{"Project State" | translate}}</label>
-      <input type="text" class="form-control" id="ProjectState" formControlName="state" >
+      <input type="text" class="form-control" id="ProjectState" formControlName="state" required >
+      <h3 class="text-danger" *ngIf="editform.controls['state']?.errors && editform.controls['state']?.touched">
+        * Project State is Required
+      </h3>
     </div>
     <div class="col-md-12">
       <label for="ProjectBudget" class="form-label">{{"Project Budget" | translate}} </label>
@@ -77,8 +86,11 @@
        </textarea>
     </div>
     <div class="modal-footer">
+      <h3 class="text-danger" *ngIf="editform.invalid">
+        * Complete required fields to enable Update button
+      </h3>
       <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">{{"Close" | translate}}</button>
-      <button type="submit" class="btn btn-primary">{{"Update" | translate}}</button>
+      <button type="submit" class="btn btn-primary" [disabled]="editform.invalid">{{"Update" | translate}}</button>
     </div>
 </form>
 <!-- //---------------------------------------------------**reactive form**--------------------------------------------// -->
