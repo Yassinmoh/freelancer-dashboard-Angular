@@ -26,10 +26,10 @@ export class ProjectsComponent implements OnInit {
     this.getAllProjects()
     this.editform=this._formBuilder.group({
       id:[""],
-      name:["",[Validators.required]],
-      state:["",[Validators.required]],
+      name:["",[Validators.required,Validators.minLength(4)]],
+      state:["",[Validators.required,Validators.minLength(4)]],
       budget:["",[Validators.required]],
-      description:["",[Validators.required]],
+      description:["",[Validators.required,Validators.minLength(10)]],
 
      })
   };
@@ -42,7 +42,7 @@ export class ProjectsComponent implements OnInit {
     })
   };
   viewDetails(pId: number): void {
-   this.router.navigate(['dash/home/project-details/', pId])
+    this.router.navigate(['dash/home/project-details/', pId])
 
   }
 

@@ -27,6 +27,7 @@ export class AuthService {
           }
           console.log("data",data)
           localStorage.setItem('access_token', data.accesToken);
+          // localStorage.setItem('data', data);
           localStorage.setItem('refresh_token', data.accesToken);
           localStorage.setItem('userName', data.userName);
           localStorage.setItem('firstName', data.firstName);
@@ -34,7 +35,7 @@ export class AuthService {
           localStorage.setItem('lastName', data.lastName);
           localStorage.setItem('_id', data._id);
           const decodedUser = this.JwtHelper.decodeToken(data.accesToken);
-          localStorage.setItem('expiration', decodedUser.exp);
+          // localStorage.setItem('expiration', decodedUser.exp);
           this.userInfo.next(decodedUser);
           return true;
         })
@@ -77,6 +78,7 @@ export class AuthService {
     localStorage.removeItem("firstName");
     localStorage.removeItem("__paypal_storage__");
     localStorage.removeItem("currentLang");
+    localStorage.removeItem("_id");
     this.userInfo.next(null);
     this.router.navigate(['/login']);
 }

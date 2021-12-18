@@ -40,22 +40,23 @@ import { ClientComponent } from './client/client.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent,children:[
 
-    { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
-    { path: 'Dashboard', component: DashboardComponent },
-    { path: 'Profile', component: ProfileComponent },
-    { path: 'reports', component: ReportsComponent },
+    { path: '', redirectTo: 'Dashboard', pathMatch: 'full'},
+    { path: 'Dashboard', component: DashboardComponent},
+    { path: 'Profile', component: ProfileComponent},
+    { path: 'reports', component: ReportsComponent},
 
-    { path: 'projects', component: ProjectsComponent },
+    { path: 'projects', component: ProjectsComponent},
     {
       path: 'users', children: [
-        { path: '', component: UsersComponent },
-        { path: 'edit', component: EditComponent },
+        { path: '', component: UsersComponent},
+        { path: 'edit', component: EditComponent},
       ]
     },
     {path:'client',component: ClientComponent}
-  ] },
-  // canActivate: [UserAuthGuard]
+  ],canActivate: [AuthGuard]}
 ]
+// ,canActivate: [AuthGuard]
+// canActivate: [UserAuthGuard]
 
 @NgModule({
   declarations: [
@@ -65,7 +66,6 @@ const routes: Routes = [
     DashboardComponent,
     ProfileComponent,
     UsersComponent,
-
     EditComponent,
     HomeComponent,
     AreaStackedComponent,

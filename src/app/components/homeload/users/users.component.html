@@ -1,29 +1,29 @@
-<section class="search-filter">
+<section class="search-filter mt-5 ">
     <div class="container">
 
 
 
-
+<!--
       <div class="row shadow mt-5">
       <div class="row m-3">
         <div class="col-lg">
           <select class="form-select" id="inlineFormSelectPref">
             <option selected >{{"Country" | translate}}</option>
-            <!-- <option value="1"></option>
-            <option value="2">User</option> -->
+              <option value="1"></option>
+            <option value="2">User</option>
           </select>
         </div>
-        <div class="col-lg">
+          <div class="col-lg">
           <select class="form-select" id="inlineFormSelectPref">
             <option selected>{{"Language" | translate}}</option>
 
-          </select>
+            </select>
         </div>
         <div class="col-lg ">
           <input type="number" class="form-control" placeholder="Rate" aria-label="Rate">
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
@@ -53,7 +53,7 @@
       <th scope="col">{{"firstName" | translate}}</th>
       <th scope="col">{{"lastName" | translate}}</th>
       <th scope="col">{{"Email" | translate}}</th>
-      <th scope="col">{{"Rating" | translate}}</th>
+      <!-- <th scope="col">{{"Rating" | translate}}</th> -->
       <th scope="col">{{"Country" | translate}}</th>
       <th scope="col">{{"Action" | translate}}</th>
     </tr>
@@ -66,7 +66,7 @@
               <td>{{user.firstName}}</td>
               <td>{{user.lastName}}</td>
               <td>{{user.Email}}</td>
-              <td>{{user.Rating}}</td>
+              <!-- <td>{{user.Rating}}</td> -->
               <td>{{user.Country}}</td>
       <td>
         <button class="btn btn-edit" type="button" (click)="onEdit(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-ng-href="#exampleModal" >{{"Edit" | translate}}</button>
@@ -95,7 +95,12 @@
 
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">{{"userName" | translate}}</label>
+
             <input type="text" formControlName="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <!-- <div class="form-control-feedback"
+			     *ngIf="userName.errors && (userName.dirty || userName.touched)">
+				<p *ngIf="userName.errors.required">Last name is required</p>
+			</div> -->
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">{{"firstName" | translate}}</label>
@@ -109,10 +114,10 @@
             <label for="exampleInputPassword1" class="form-label">{{"Email" | translate}}</label>
             <input type="email" formControlName="Email" class="form-control" id="exampleInputPassword1">
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">{{"Rating" | translate}}</label>
             <input type="number" formControlName="Rating" class="form-control" id="exampleInputPassword1">
-          </div>
+          </div> -->
           <!-- <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">{{"Image" | translate}}</label>
             <input type="file" formControlName="Image" class="form-control" id="exampleInputPassword1" (change)="onFileSelected($event)">

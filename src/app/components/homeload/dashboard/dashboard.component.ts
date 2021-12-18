@@ -342,7 +342,7 @@ export class DashboardComponent implements OnInit {
         drowshap()
 
       });
-      console.log("x==="+x)
+      // console.log("x==="+x)
 
 
     });

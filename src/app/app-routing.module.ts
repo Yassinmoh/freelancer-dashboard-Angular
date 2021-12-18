@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'dash',
     loadChildren: () => import('./components/homeload/homeload.module').then(m => m.HomeloadModule)
-  },
+    },
   // { path: '', redirectTo: 'dash/home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];

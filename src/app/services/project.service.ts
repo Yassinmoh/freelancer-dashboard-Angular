@@ -27,10 +27,10 @@ export class ProjectService {
 
 // get no of pending projects
 getNoOfPendingProjects():Observable<any>{
-  return this.httpClient.get(environment.APIURL +'/project/pending')
+  return this.httpClient.get(environment.APIURL +'/project/pending',this.httpoptions)
 }
 getNoOfCompletedProjects():Observable<any>{
-  return this.httpClient.get(environment.APIURL +'/project/completed')
+  return this.httpClient.get(environment.APIURL +'/project/completed',this.httpoptions)
 }
 
 
@@ -46,7 +46,7 @@ getNoOfCompletedProjects():Observable<any>{
     //   }){headers:httpHeaders}
 
     return this.httpClient.get<Project[]>(`${environment.APIURL}/project/all`,this.httpoptions);
-      console.log(environment.APIURL);
+      // console.log(environment.APIURL);
   };
   getProjectByID(pID: number):Observable<Project>
   {
