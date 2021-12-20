@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit {
 
     this._adminservice.getAllAdmins().subscribe((res) => {
       this.admins=res
-      console.log(this.admins)
+      console.log("admins",this.admins)
     })
 
     // ---------------------------------------------------------------

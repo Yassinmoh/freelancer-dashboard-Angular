@@ -1,0 +1,61 @@
+<section class="search-filter mt-5 ">
+  <div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------- -->
+
+
+
+<div class="container-fluid mt-5">
+<table class="table table-striped">
+<thead class="thead-style">
+  <tr>
+    <th scope="col">{{"ID" | translate}}</th>
+    <th scope="col">{{"userName" | translate}}</th>
+    <th scope="col">{{"firstName" | translate}}</th>
+    <th scope="col">{{"lastName" | translate}}</th>
+    <th scope="col">{{"Email" | translate}}</th>
+    <th scope="col">{{"Country" | translate}}</th>
+    <th scope="col">{{"Action" | translate}}</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let x of usersTrash | paginate: {itemsPerPage: 5, currentPage: page,totalItems:totalTrashLength }; let i = index ">
+            <td>{{ i + 1 }}</td>
+            <td>{{x.userName}}</td>
+            <td>{{x.firstName}}</td>
+            <td>{{x.lastName}}</td>
+            <td>{{x.Email}}</td>
+            <td>{{x.Country}}</td>
+    <td>
+      <button class="btn btn-success" (click)="restoreUser(x._id)">Restore</button>
+      <!-- <button class="btn btn-edit" type="button" (click)="onEdit(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-ng-href="#exampleModal" >{{"Edit" | translate}}</button>
+      <button class="btn btn-delete mx-3" (click)="DeleteUser(user)">{{"Delete" | translate}}</button> -->
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
+</section>
+
+
+
+
+
+

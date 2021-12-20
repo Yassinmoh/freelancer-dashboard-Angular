@@ -15,8 +15,8 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     let userData = this.authService.userInfo.getValue();
-    console.log(userData)
-
+    console.log("userData",userData)
+    //
     if (userData && userData.exp) {
       // sub represents user id value
       if (state.url.indexOf("/login") != -1) {  // loggin user trying to access login page

@@ -3,27 +3,7 @@
 
 
 
-<!--
-      <div class="row shadow mt-5">
-      <div class="row m-3">
-        <div class="col-lg">
-          <select class="form-select" id="inlineFormSelectPref">
-            <option selected >{{"Country" | translate}}</option>
-              <option value="1"></option>
-            <option value="2">User</option>
-          </select>
-        </div>
-          <div class="col-lg">
-          <select class="form-select" id="inlineFormSelectPref">
-            <option selected>{{"Language" | translate}}</option>
 
-            </select>
-        </div>
-        <div class="col-lg ">
-          <input type="number" class="form-control" placeholder="Rate" aria-label="Rate">
-        </div>
-      </div>
-    </div> -->
 
 
 
@@ -139,10 +119,11 @@
 
             <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">{{"Close" | translate}}</button>
             <!-- <button type="button" class="btn btn-primary" (click)="postUserDetails()">Add</button> -->
-            <button type="button" class="btn btn-success" (click)="updateUserDetails(users)" [disabled]="formValue.invalid" >  {{"Update" | translate}}</button>
-            <h3 class="text-danger" *ngIf="formValue.invalid">
+            <button type="button" class="btn btn-success" (click)="updateUserDetails(users)" >  {{"Update" | translate}}</button>
+            <!-- <h3 class="text-danger" *ngIf="formValue.invalid">
               * Complete required fields to enable Update button
-            </h3>
+              [disabled]="formValue.invalid"
+            </h3> -->
           </div>
         </form>
       </div>

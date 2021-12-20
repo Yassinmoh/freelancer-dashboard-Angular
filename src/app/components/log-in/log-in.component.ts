@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
 
 
       if(res){
-        console.log(res)
+        console.log("res",res)
 
-        this.router.navigate(["/dash/home"])
+        this.router.navigate(["/dash/home/Dashboard"])
         const Toast = Swal.mixin({
           toast: true,
           position: 'top',

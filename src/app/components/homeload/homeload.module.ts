@@ -33,6 +33,7 @@ import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReportsComponent } from './reports/reports.component';
 import { ClientComponent } from './client/client.component';
+import { TrashComponent } from './trash/trash.component';
 
 
 
@@ -49,7 +50,7 @@ const routes: Routes = [
     {
       path: 'users', children: [
         { path: '', component: UsersComponent},
-        { path: 'edit', component: EditComponent},
+        { path: 'trash', component: TrashComponent},
       ]
     },
     {path:'client',component: ClientComponent}
@@ -71,7 +72,8 @@ const routes: Routes = [
     AreaStackedComponent,
     ProjectsComponent,
     ReportsComponent,
-    ClientComponent
+    ClientComponent,
+    TrashComponent
   ],
   imports: [
     HttpClientModule,
